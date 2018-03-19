@@ -1,76 +1,393 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'bootstrap.html.twig' %}
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+    {{ parent() }}
+
+    <!--Slider-->
+    <section id="slide-show">
+        <div id="slider" class="sl-slider-wrapper">
+
+            <!--Slider Items-->
+            <div class="sl-slider">
+                <!--Slider Item1-->
+                <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="-25"
+                     data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                    <div class="sl-slide-inner">
+                        <div class="container">
+                            <img class="pull-right" src="{{ asset('css/images/sample/slider/img1.png') }}" alt=""/>
+                            <h2>Creative Ideas</h2>
+                            <h3 class="gap">Tincidunt condimentum eros</h3>
+                            <a class="btn btn-large btn-transparent" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!--/Slider Item1-->
+
+                <!--Slider Item2-->
+                <div class="sl-slide item2" data-orientation="vertical" data-slice1-rotation="10"
+                     data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                    <div class="sl-slide-inner">
+                        <div class="container">
+                            <img class="pull-right" src="{{ asset('css/images/sample/slider/img2.png') }}" alt=""/>
+                            <h2>Planning &amp; Analysis</h2>
+                            <h3 class="gap">Aenean ultricies mi vitast</h3>
+                            <a class="btn btn-large btn-transparent" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Slider Item2-->
+
+                <!--Slider Item3-->
+                <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3"
+                     data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                    <div class="sl-slide-inner">
+                        <div class="container">
+                            <img class="pull-right" src="{{ asset('css/images/sample/slider/img3.png') }}" alt=""/>
+                            <h2>Unique Solutions</h2>
+                            <h3 class="gap">Breatures who have been utterly</h3>
+                            <a class="btn btn-large btn-transparent" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Slider Item3-->
+
+            </div>
+            <!--/Slider Items-->
+
+            <!--Slider Next Prev button-->
+            <nav id="nav-arrows" class="nav-arrows">
+                <span class="nav-arrow-prev"><i class="icon-angle-left"></i></span>
+                <span class="nav-arrow-next"><i class="icon-angle-right"></i></span>
+            </nav>
+            <!--/Slider Next Prev button-->
+
+        </div>
+        <!-- /slider-wrapper -->
+    </section>
+    <!--/Slider-->
+
+    <section class="main-info">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span9">
+                    <h4>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                        egestas</h4>
+                    <p class="no-margin">Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+                        tortor quam, feugiat vitae, ultricies eget, tempor sit amet</p>
+                </div>
+                <div class="span3">
+                    <a class="btn btn-success btn-large pull-right" href="http://shapebootstrap.net">Free Download
+                        Nova</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Services-->
+    <section id="services">
+        <div class="container">
+            <div class="center gap">
+                <h3>What We Offer</h3>
+                <p class="lead">Look at some of the recent projects we have completed for our valuble clients</p>
             </div>
 
-            <div id="status">
-                <p>
-                    <svg id="icon-status" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z" fill="#759E1A"/></svg>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="icon-globe icon-medium"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Web Design</h4>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                                placerat eleifend leo.</p>
+                        </div>
+                    </div>
+                </div>
 
-                    Your application is now ready. You can start working on it at:
-                    <code>{{ base_dir }}</code>
-                </p>
+                <div class="span4">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="icon-thumbs-up-alt icon-medium"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Graphic Design</h4>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                                placerat eleifend leo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="icon-leaf icon-medium icon-rounded"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Email Marketing</h4>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                                placerat eleifend leo.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div id="next">
-                <h2>What's next?</h2>
-                <p>
-                    <svg id="icon-book" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-12.5 9 64 64" enable-background="new -12.5 9 64 64" xml:space="preserve">
-                        <path fill="#AAA" d="M6.8,40.8c2.4,0.8,4.5-0.7,4.9-2.5c0.2-1.2-0.3-2.1-1.3-3.2l-0.8-0.8c-0.4-0.5-0.6-1.3-0.2-1.9
-                            c0.4-0.5,0.9-0.8,1.8-0.5c1.3,0.4,1.9,1.3,2.9,2.2c-0.4,1.4-0.7,2.9-0.9,4.2l-0.2,1c-0.7,4-1.3,6.2-2.7,7.5
-                            c-0.3,0.3-0.7,0.5-1.3,0.6c-0.3,0-0.4-0.3-0.4-0.3c0-0.3,0.2-0.3,0.3-0.4c0.2-0.1,0.5-0.3,0.4-0.8c0-0.7-0.6-1.3-1.3-1.3
-                            c-0.6,0-1.4,0.6-1.4,1.7s1,1.9,2.4,1.8c0.8,0,2.5-0.3,4.2-2.5c2-2.5,2.5-5.4,2.9-7.4l0.5-2.8c0.3,0,0.5,0.1,0.8,0.1
-                            c2.4,0.1,3.7-1.3,3.7-2.3c0-0.6-0.3-1.2-0.9-1.2c-0.4,0-0.8,0.3-1,0.8c-0.1,0.6,0.8,1.1,0.1,1.5c-0.5,0.3-1.4,0.6-2.7,0.4l0.3-1.3
-                            c0.5-2.6,1-5.7,3.2-5.8c0.2,0,0.8,0,0.8,0.4c0,0.2,0,0.2-0.2,0.5c-0.2,0.3-0.3,0.4-0.2,0.7c0,0.7,0.5,1.1,1.2,1.1
-                            c0.9,0,1.2-1,1.2-1.4c0-1.2-1.2-1.8-2.6-1.8c-1.5,0.1-2.8,0.9-3.7,2.1c-1.1,1.3-1.8,2.9-2.3,4.5c-0.9-0.8-1.6-1.8-3.1-2.3
-                            c-1.1-0.7-2.3-0.5-3.4,0.3c-0.5,0.4-0.8,1-1,1.6c-0.4,1.5,0.4,2.9,0.8,3.4l0.9,1c0.2,0.2,0.6,0.8,0.4,1.5c-0.3,0.8-1.2,1.3-2.1,1
-                            c-0.4-0.2-1-0.5-0.9-0.9c0.1-0.2,0.2-0.3,0.3-0.5s0.1-0.3,0.1-0.3c0.2-0.6-0.1-1.4-0.7-1.6c-0.6-0.2-1.2,0-1.3,0.8
-                            C4.3,38.4,4.7,40,6.8,40.8z M46.1,20.9c0-4.2-3.2-7.5-7.1-7.5h-3.8C34.8,10.8,32.7,9,30.2,9L-2.3,9.1c-2.8,0.1-4.9,2.4-4.9,5.4
-                            L-7,58.6c0,4.8,8.1,13.9,11.6,14.1l34.7-0.1c3.9,0,7-3.4,7-7.6L46.1,20.9z M-0.3,36.4c0-8.6,6.5-15.6,14.5-15.6
-                            c8,0,14.5,7,14.5,15.6S22.1,52,14.2,52C6.1,52-0.3,45-0.3,36.4z M42.1,65.1c0,1.8-1.5,3.1-3.1,3.1H4.6c-0.7,0-3-1.8-4.5-4.4h30.4
-                            c2.8,0,5-2.4,5-5.4V17.9h3.7c1.6,0,2.9,1.4,2.9,3.1V65.1L42.1,65.1z"/>
-                    </svg>
+            <div class="gap"></div>
 
-                    Read the documentation to learn
-                    <a href="https://symfony.com/doc/{{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION')[:3] }}/page_creation.html">
-                        How to create your first page in Symfony
-                    </a>
-                </p>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="icon-shopping-cart icon-medium"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Ecommerce Solution</h4>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                                placerat eleifend leo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="icon-globe icon-medium"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">SEO &amp; Solution</h4>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                                placerat eleifend leo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span4">
+                    <div class="media">
+                        <div class="pull-left">
+                            <i class="icon-globe icon-medium"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Bootstrap</h4>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+                                Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
+                                placerat eleifend leo.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
-    </div>
+    </section>
+    <!--/Services-->
+
+    <section id="recent-works">
+        <div class="container">
+            <div class="center">
+                <h3>Our Recent Works</h3>
+                <p class="lead">Look at some of the recent projects we have completed for our valuble clients</p>
+            </div>
+            <div class="gap"></div>
+            <ul class="gallery col-4">
+                <!--Item 1-->
+                <li>
+                    <div class="preview">
+                        <img alt=" " src="{{ asset('css/images/portfolio/thumb/item1.jpg') }}">
+                        <div class="overlay">
+                        </div>
+                        <div class="links">
+                            <a data-toggle="modal" href="#modal-1"><i class="icon-eye-open"></i></a><a href="#"><i
+                                        class="icon-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                    </div>
+                    <div id="modal-1" class="modal hide fade">
+                        <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
+                                    class="icon-remove"></i></a>
+                        <div class="modal-body">
+                            <img src="{{ asset('css/images/portfolio/full/item1.jpg') }}" alt=" " width="100%"
+                                 style="max-height:400px">
+                        </div>
+                    </div>
+                </li>
+                <!--/Item 1-->
+
+                <!--Item 2-->
+                <li>
+                    <div class="preview">
+                        <img alt=" " src="{{ asset('css/images/portfolio/thumb/item2.jpg') }}">
+                        <div class="overlay">
+                        </div>
+                        <div class="links">
+                            <a data-toggle="modal" href="#modal-1"><i class="icon-eye-open"></i></a><a href="#"><i
+                                        class="icon-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                    </div>
+                    <div id="modal-1" class="modal hide fade">
+                        <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
+                                    class="icon-remove"></i></a>
+                        <div class="modal-body">
+                            <img src="{{ asset('css/images/portfolio/full/item2.jpg') }}" alt=" " width="100%"
+                                 style="max-height:400px">
+                        </div>
+                    </div>
+                </li>
+                <!--/Item 2-->
+
+                <!--Item 3-->
+                <li>
+                    <div class="preview">
+                        <img alt=" " src="{{ asset('css/images/portfolio/thumb/item3.jpg') }}">
+                        <div class="overlay">
+                        </div>
+                        <div class="links">
+                            <a data-toggle="modal" href="#modal-3"><i class="icon-eye-open"></i></a><a href="#"><i
+                                        class="icon-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                    </div>
+                    <div id="modal-3" class="modal hide fade">
+                        <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
+                                    class="icon-remove"></i></a>
+                        <div class="modal-body">
+                            <img src="{{ asset('css/images/portfolio/full/item3.jpg') }}" alt=" " width="100%"
+                                 style="max-height:400px">
+                        </div>
+                    </div>
+                </li>
+                <!--/Item 3-->
+
+                <!--Item 4-->
+                <li>
+                    <div class="preview">
+                        <img alt=" " src="{{ asset('css/images/portfolio/thumb/item4.jpg') }}">
+                        <div class="overlay">
+                        </div>
+                        <div class="links">
+                            <a data-toggle="modal" href="#modal-4"><i class="icon-eye-open"></i></a><a href="#"><i
+                                        class="icon-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                    </div>
+                    <div id="modal-4" class="modal hide fade">
+                        <a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i
+                                    class="icon-remove"></i></a>
+                        <div class="modal-body">
+                            <img src="{{ asset('css/images/portfolio/full/item4.jpg') }}" alt=" " width="100%"
+                                 style="max-height:400px">
+                        </div>
+                    </div>
+                </li>
+                <!--/Item 4-->
+
+            </ul>
+        </div>
+    </section>
+
+    <section id="clients" class="main">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span2">
+                    <div class="clearfix">
+                        <h4 class="pull-left">OUR PARTNERS</h4>
+                        <div class="pull-right">
+                            <a class="prev" href="#myCarousel" data-slide="prev"><i
+                                        class="icon-angle-left icon-large"></i></a> <a class="next" href="#myCarousel"
+                                                                                       data-slide="next"><i
+                                        class="icon-angle-right icon-large"></i></a>
+                        </div>
+                    </div>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                </div>
+                <div class="span10">
+                    <div id="myCarousel" class="carousel slide clients">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <div class="row-fluid">
+                                    <ul class="thumbnails">
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client1.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client1.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client3.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client4.png') }}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row-fluid">
+                                    <ul class="thumbnails">
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client4.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client3.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client2.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client1.png') }}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="row-fluid">
+                                    <ul class="thumbnails">
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client4.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client3.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client2.png') }}"></a>
+                                        </li>
+                                        <li class="span3"><a href="#"><img
+                                                        src="{{ asset('css/images/sample/clients/client1.png') }}"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Carousel items -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}
 
-{% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
-
-    @media (min-width: 768px) {
-        #wrapper { width: 80%; margin: 2em auto; }
-        #icon-book { display: inline-block; }
-        #status a, #next a { display: block; }
-
-        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
-        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
-    }
-</style>
+{% block footer %}
+    {{ parent() }}
 {% endblock %}
