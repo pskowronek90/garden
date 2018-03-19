@@ -12,7 +12,7 @@ About
 <ul>
 <li>E-mail Reminders</li>
 <li>Watering status</li>
-<li>Welcome Page></li>
+<li>Welcome Page</li>
 <li>Documentation</li>
 </ul>
 And much more
