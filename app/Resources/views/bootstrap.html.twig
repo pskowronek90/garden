@@ -54,30 +54,24 @@
                 <a id="logo" class="pull-left" href="/"></a>
                 <div class="nav-collapse collapse pull-right">
                     <ul class="nav">
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li class="active"><a href="/">Start</a></li>
+                        <li><a href="about-us.html">Projekt</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact-us.html">Kontakt</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Panel&nbsp;&nbsp;<i
                                         class="icon-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="career.html">Career</a></li>
-                                <li><a href="blog-item.html">Blog Single</a></li>
                                 <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="registration.html">Registration</a></li>
+                                <li><a href="pricing.html">Demo</a></li>
+                                <li><a href="registration.html">Rejestracja</a></li>
                                 <li class="divider"></li>
-                                <li><a href="privacy.html">Privacy Policy</a></li>
-                                <li><a href="terms.html">Terms of Use</a></li>
+                                <li><a href="privacy.html">Polityka prywatności</a></li>
+                                <li><a href="terms.html">Warunki użytkowania</a></li>
                             </ul>
                         </li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
                         <li class="login">
-                            <a data-toggle="modal" href="#loginForm"><i class="icon-lock"></i></a>
+                            <a data-toggle="modal" href="#loginForm">Logowanie&nbsp;&nbsp;<i class="icon-lock"></i></a>
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -187,25 +181,26 @@
     </footer>
     <!--/Footer-->
 
-{#TODO Adjust Login Form once the core application will be created #}
+    {#TODO Adjust Login Form once the core application will be created #}
 
     <!--  Login form -->
     <div class="modal hide fade in" id="loginForm" aria-hidden="false">
         <div class="modal-header">
             <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>
-            <h4>Login Form</h4>
+            <h4>Floracare - Logowanie</h4>
         </div>
         <!--Modal Body-->
+        {#TODO Action - separate application site #}
         <div class="modal-body">
             <form class="form-inline" action="/" method="post" id="form-login">
                 <input type="text" class="input-small" placeholder="Email">
-                <input type="password" class="input-small" placeholder="Password">
+                <input type="password" class="input-small" placeholder="Hasło">
                 <label class="checkbox">
-                    <input type="checkbox"> Remember me
+                    <input type="checkbox"> Zapamiętaj mnie
                 </label>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Zaloguj</button>
             </form>
-            <a href="#">Forgot your password?</a>
+            <a href="#">Przypomnij hasło</a>
         </div>
         <!--/Modal Body-->
     </div>
@@ -221,30 +216,30 @@
 
     <!-- SL Slider -->
     <script type="text/javascript">
-        $(function() {
-            var Page = (function() {
+        $(function () {
+            var Page = (function () {
 
-                var $navArrows = $( '#nav-arrows' ),
-                    slitslider = $( '#slider' ).slitslider( {
-                        autoplay : true
-                    } ),
+                var $navArrows = $('#nav-arrows'),
+                    slitslider = $('#slider').slitslider({
+                        autoplay: true
+                    }),
 
-                    init = function() {
+                    init = function () {
                         initEvents();
                     },
-                    initEvents = function() {
-                        $navArrows.children( ':last' ).on( 'click', function() {
+                    initEvents = function () {
+                        $navArrows.children(':last').on('click', function () {
                             slitslider.next();
                             return false;
                         });
 
-                        $navArrows.children( ':first' ).on( 'click', function() {
+                        $navArrows.children(':first').on('click', function () {
                             slitslider.previous();
                             return false;
                         });
                     };
 
-                return { init : init };
+                return {init: init};
 
             })();
 
