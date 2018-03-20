@@ -567,18 +567,18 @@ ul.rss li::before {
 }
 
 #footer {
-    background: #333;
+    color: #FBFBEF;
+    background: #088A08;
     padding-top: 15px;
     padding-bottom: 15px;
-    color: #666
 }
 
 #footer a {
-    color: #666
+    color: #FBFBEF;
 }
 
 #footer a:hover {
-    color: #2dcc70
+    color: #FFFF00;
 }
 
 #footer #gototop {
