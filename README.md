@@ -3,7 +3,7 @@ Floracare - Best Solutions for Your Garden
 
 ![alt text](https://raw.githubusercontent.com/pskowronek90/garden/bootstrap/web/css/images/logo.png)
 
-Snapshops
+Snapshots
 =========
 
 <h4>Welcome Page</h4>
