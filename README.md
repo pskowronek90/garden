@@ -8,7 +8,7 @@ Snapshops
 
 <h4>Welcome Page</h4>
 
-![alt_text](https://raw.githubusercontent.com/pskowronek90/garden/bootstrap/web/css/images/snapshot.png)
+![alt_text](https://preview.ibb.co/n7Pypc/Zrzut_ekranu_2018_03_20_o_10_19_07.png)
 
 About
 =========
