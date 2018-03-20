@@ -9,8 +9,8 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"><!--<![endif]-->
 {% endblock %}
+{% block head %}
 <head>
-    {% block head %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta lang="pl-PL">
@@ -36,12 +36,10 @@
         <link rel="apple-touch-icon-precomposed"
               href="{{ asset('css/images/ico/apple-touch-icon-57-precomposed.png') }}"/>
         <!-- Import font -->
-
-
-    {% endblock %}
 </head>
-<body>
+{% endblock %}
 {% block body %}
+    <body>
     <!--Header-->
     <header class="navbar navbar-fixed-top">
         <div class="navbar-inner">
@@ -54,20 +52,20 @@
                 <a id="logo" class="pull-left" href="/"></a>
                 <div class="nav-collapse collapse pull-right">
                     <ul class="nav">
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="about-us.html">About</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
+                        <li><a href="{{ path('about')}}">About</a></li>
+                        <li><a href="{{ path('blog') }}">Blog</a></li>
+                        <li><a href="{{ path('contact') }}">Contact</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages&nbsp;&nbsp;<i
                                         class="icon-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="pricing.html">Demo</a></li>
-                                <li><a href="registration.html">Register</a></li>
+                                <li><a href="#">Demo</a></li>
+                                <li><a href="{{ path('faq') }}">FAQ</a></li>
+                                <li><a href="/register">Register</a></li>
                                 <li class="divider"></li>
-                                <li><a href="privacy.html">Privacy Policy</a></li>
-                                <li><a href="terms.html">Terms of Use</a></li>
+                                <li><a href="{{ path('privacy') }}">Privacy Policy</a></li>
+                                <li><a href="{{ path('terms') }}">Terms of Use</a></li>
                             </ul>
                         </li>
                         <li class="login">
@@ -78,6 +76,7 @@
             </div>
         </div>
     </header>
+    </body>
     <!-- /header -->
 
 {% endblock %}
@@ -98,11 +97,7 @@
                 <div class="span6">
                     <ul class="social pull-right">
                         <li><a href="#"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                        <li><a href="#"><i class="icon-github-alt"></i></a></li>
-                        <li><a href="#"><i class="icon-instagram"></i></a></li>
+                        <li><a href="https://github.com/pskowronek90/garden/tree/bootstrap" target="_blank"><i class="icon-github-alt"></i></a></li>
                     </ul>
                 </div>
 
@@ -134,7 +129,7 @@
                 </label>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
-            <a href="#">Forgot my password</a>&nbsp;<a href="#" style="float:  right">Create new account</a>
+            <a href="#">Forgot my password</a>&nbsp;<a href="/register" style="float:  right">Create new account</a>
         </div>
         <!--/Modal Body-->
     </div>

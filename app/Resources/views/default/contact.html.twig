@@ -1,0 +1,54 @@
+{% extends 'bootstrap.html.twig' %}
+{% block doctype %} {{ parent() }} {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <title>{% block title %}{{ parent() }} - Contact{% endblock %}</title>
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+    {#@TODO PHPMailer#}
+
+    <section id="contact-page" class="container">
+        <div class="row-fluid">
+
+            <div class="span8">
+                <h4>Contact Form</h4>
+                <div class="status alert alert-success" style="display: none"></div>
+
+                <form id="main-contact-form" class="contact-form" name="contact-form" method="post"
+                      action="sendemail.php">
+                    <div class="row-fluid">
+                        <div class="span5">
+                            <label>Category</label>
+                            <select id="selector" name="category">
+                                <option value="bug">Bug Report</option>
+                                <option value="question">Question</option>
+                                <option value="suggest">Suggest New Feature</option>
+                                <option value="cooperations">Join Team</option>
+                            </select>
+                            <label>Name and Last Name</label>
+                            <input type="text" class="input-block-level" required="required"
+                                   placeholder="Your Name and Last Name">
+                            <label>Email Address</label>
+                            <input type="text" class="input-block-level" required="required"
+                                   placeholder="Your email address">
+                        </div>
+                        <div class="span7">
+                            <label>Message</label>
+                            <textarea name="message" id="message" required="required" class="input-block-level"
+                                      rows="8"></textarea>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large pull-right">Send Message</button>
+                    <p></p>
+
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+{% block footer %}{{ parent() }}{% endblock %}

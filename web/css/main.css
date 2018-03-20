@@ -481,6 +481,30 @@ header .dropdown-menu:before {
     display: inline-block
 }
 
+#captcha-1 {
+    text-align: left;
+    display: inline;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 40%;
+    background-color: yellow;
+    color: red;
+}
+
+#captcha-2 {
+    text-align: left;
+    display: inline;
+    font-size: 24px;
+    border: 2px dotted yellow;
+    border-radius: 40%;
+    background-color: grey;
+    color: blue;
+}
+
+#captcha-result {
+    width: 30px;
+}
+
 #bottom {
     background: #232323;
     color: #6f6f6f
@@ -694,7 +718,9 @@ select:focus, textarea:focus, input[type="text"]:focus, input[type="password"]:f
 
 textarea#message {
     padding: 10px 15px;
-    height: 219px
+    height: 219px;
+    width: 800px;
+    resize: none;
 }
 
 .widget {

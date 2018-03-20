@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends 'bootstrap.html.twig' %}
+{% block doctype %} {{ parent() }} {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <title>{% block title %}{{ parent() }} - Subtitle{% endblock %}</title>
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+
+{% endblock %}
+{% block footer %}{{ parent() }}{% endblock %}
