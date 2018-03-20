@@ -362,7 +362,8 @@ header .dropdown-menu:before {
 
 .main-info {
     background-color: #fff;
-    color: #999
+    color: #999;
+    text-align: left;
 }
 
 .main-info h4 {
