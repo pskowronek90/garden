@@ -1,4 +1,15 @@
 {% extends 'bootstrap.html.twig' %}
+{% block doctype %} {{ parent() }} {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <title>{% block title %}{{ parent() }}{% endblock %}</title>
+
+    <script type="text/javascript" id="cookieinfo"
+            src="//cookieinfoscript.com/js/cookieinfo.min.js">
+    </script>
+
+
+{% endblock %}
 {% block body %}
     {{ parent() }}
 
@@ -67,7 +78,8 @@
                         <div class="media-body">
                             <img src="{{ asset('css/images/sample/slider/img4.jpeg') }}" alt="img4"/><br><br>
                             <h4 class="media-heading">Vacation Mode</h4>
-                            <p>Thanks to vacation mode you can inform your friends or family to helps you with daily tasks during your absence</p>
+                            <p>Thanks to vacation mode you can inform your friends or family to helps you with daily
+                                tasks during your absence</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +90,8 @@
                         <div class="media-body">
                             <img src="{{ asset('css/images/sample/slider/img5.jpeg') }}" alt="img2"/><br><br>
                             <h4 class="media-heading">Easy to use</h4>
-                            <p>You can simply add new items and see current statuses. Check our free demo to find out more</p>
+                            <p>You can simply add new items and see current statuses. Check our free demo to find out
+                                more</p>
                         </div>
                     </div>
                 </div>
@@ -87,13 +100,12 @@
                     <div class="media">
                         <div class="media-body">
                             <img src="{{ asset('css/images/sample/slider/img6.jpeg') }}" alt="img1"/><br><br>
-                            <h4 class="media-heading">Free of charge</h4>
-                            <p>Absolutely free - always</p>
+                            <h4 class="media-heading">Reasonable Price</h4>
+                            <p>Free of charge with limited use or only 5 EUR for all features. Check now our pricing options</p>
                         </div>
                     </div>
                 </div>
             </div>
-
 
 
         </div>

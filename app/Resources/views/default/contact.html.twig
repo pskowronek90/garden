@@ -17,21 +17,18 @@
                 <div class="status alert alert-success" style="display: none"></div>
 
                 <form id="main-contact-form" class="contact-form" name="contact-form" method="post"
-                      action="sendemail.php">
+                      action="" role="form">
                     <div class="row-fluid">
                         <div class="span5">
-                            <label>Category</label>
-                            <select id="selector" name="category">
-                                <option value="bug">Bug Report</option>
-                                <option value="question">Question</option>
-                                <option value="suggest">Suggest New Feature</option>
-                                <option value="cooperations">Join Team</option>
-                            </select>
+                            <label>Topic</label>
+                            <input type="text" id="topic" name="topic" required="required" placeholder="Topic of your message">
                             <label>Name and Last Name</label>
-                            <input type="text" class="input-block-level" required="required"
+                            <input type="text" name="name" id="name" lass="input-block-level"
+                                   required="required"
                                    placeholder="Your Name and Last Name">
                             <label>Email Address</label>
-                            <input type="text" class="input-block-level" required="required"
+                            <input type="email" name="email" id="email" class="input-block-level"
+                                   required="required"
                                    placeholder="Your email address">
                         </div>
                         <div class="span7">
