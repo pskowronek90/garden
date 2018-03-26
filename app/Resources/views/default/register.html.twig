@@ -54,11 +54,10 @@
                     </div>
                 </div>
 
-                {#<div class="control-group">#}
-                {#<!-- Captcha -->#}
-                {#<p id="captcha-1">{{ random(['1', '2', '3', '4', '5']) }}</p>&nbsp; + &nbsp;<p id="captcha-2">{{ random(['1', '2', '3', '4', '5']) }}</p> =#}
-                {#<input type="text" id="captcha-result">#}
-                {#</div>#}
+                <div class="control-group">
+                <!-- Agree -->
+                    <input type="checkbox" name="agree" id="agree">&nbsp;I accept Terms of Use & Privacy Policy
+                </div>
 
 
                 <div class="control-group">
@@ -67,7 +66,6 @@
                         <button class="btn btn-success btn-large btn-block" type="submit">Register</button>
                     </div>
                 </div>
-
                 </div>
             </fieldset>
         </form>

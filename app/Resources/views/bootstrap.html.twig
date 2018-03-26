@@ -1,13 +1,6 @@
 {% block doctype %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"><!--<![endif]-->
+<html>
 {% endblock %}
 {% block head %}
 <head>
@@ -62,7 +55,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{ path('demo') }}">Demo</a></li>
                                 <li><a href="{{ path('faq') }}">FAQ</a></li>
-                                <li><a href="/register">Register</a></li>
+                                <li><a href="{{ path('register_get') }}">Register</a></li>
                                 <li><a href="{{ path('pricing') }}">Pricing</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{ path('privacy') }}">Privacy Policy</a></li>
@@ -71,6 +64,11 @@
                         </li>
                         <li class="login">
                             <a data-toggle="modal" href="#loginForm">Sign in&nbsp;&nbsp;<i class="icon-lock"></i></a>
+                        </li>
+                        <li class="language" style="margin-bottom: inherit">
+                            <a href="#" style="width: 20px; height: 20px; float: left"><img class="lang" src="{{ asset('css/images/lang/pl.png') }}"></a>
+                            <a href="#" style="width: 20px; height: 20px; float: right"><img  class="lang" src="{{ asset('css/images/lang/en.png') }}"></a>
+
                         </li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -144,40 +142,9 @@
     <script src="{{ asset('js/jquery.slitslider.js') }}"></script>
     <!-- /Required javascript files for Slider -->
 
-    <!-- SL Slider -->
-    <script type="text/javascript">
-        $(function () {
-            var Page = (function () {
 
-                var $navArrows = $('#nav-arrows'),
-                    slitslider = $('#slider').slitslider({
-                        autoplay: true
-                    }),
-
-                    init = function () {
-                        initEvents();
-                    },
-                    initEvents = function () {
-                        $navArrows.children(':last').on('click', function () {
-                            slitslider.next();
-                            return false;
-                        });
-
-                        $navArrows.children(':first').on('click', function () {
-                            slitslider.previous();
-                            return false;
-                        });
-                    };
-
-                return {init: init};
-
-            })();
-
-            Page.init();
-        });
-    </script>
-    <!-- /SL Slider -->
 
 {% endblock %}
 
 </body>
+</html>

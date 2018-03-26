@@ -65,12 +65,13 @@ body h3, body h4 {
 
 .btn.btn-transparent {
     border: 3px solid #fff;
-    background: transparent;
+    background: greenyellow;
     color: #fff
 }
 
 .btn.btn-transparent:hover {
-    border-color: rgba(255, 255, 255, 0.5)
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #1ABC9C;
 }
 
 .btn.btn-link {
@@ -129,7 +130,8 @@ body > section#slide-show {
 }
 
 #clients {
-    background: #fff
+    background: #fff;
+    border: none;
 }
 
 #clients h4 {
@@ -137,7 +139,8 @@ body > section#slide-show {
 }
 
 #clients .carousel {
-    margin-bottom: 0
+    margin-bottom: 0;
+    border: none;
 }
 
 #clients .clients ul.thumbnails {
@@ -454,7 +457,13 @@ header .dropdown-menu:before {
 
 #services {
     background: #252525;
-    color: #999
+    color: #999;
+    max-width: 90%;
+    width: auto \9;
+    height: auto;
+    vertical-align: middle;
+    border: 2px solid azure;
+    -ms-interpolation-mode: bicubic;
 }
 
 #services h1, #services h2, #services h3, #services h4, #services h5, #services h6 {
@@ -761,16 +770,24 @@ textarea#message {
     line-height: 18px
 }
 
+
 #pricing-table {
     margin-top: 20px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    position: center;
 }
 
 #pricing-table .plan {
     list-style: none;
     margin: 0;
     padding: 0;
-    color: #fff
+    color: black;
+    border: 1px black;
+
+}
+
+.pricing-description {
+    text-align: center;
 }
 
 #pricing-table .plan.featured {
@@ -778,35 +795,34 @@ textarea#message {
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-    transform: scale(1.1)
+    transform: scale(1.1);
+    position: center;
 }
 
 #pricing-table .plan > li {
-    padding: 10px 15px
+    padding: 10px 15px;
+    position: center;
 }
 
 #pricing-table .plan > li.plan-name {
-    background: rgba(0, 0, 0, 0.1)
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
 }
 
 #pricing-table .plan > li.plan-name h3 {
-    margin: 10px 0
+    margin: 10px 0;
+    color: #0e0e0e;
 }
 
 #pricing-table .plan > li.plan-action {
-    padding: 20px 0
+    padding: 20px 0;
+    color: olivedrab;
 }
 
-#pricing-table .plan1 {
-    background: #1abc9c
-}
-
-#pricing-table .plan2 {
-    background: #e74c3c
-}
 
 #pricing-table .plan3 {
-    background: #3498db
+    background: grey;
+    position: center;
 }
 
 #pricing-table .plan4 {
@@ -950,4 +966,15 @@ ul.faq li > div h3 {
     text-align: center;
     margin-top: 150px;
     margin-bottom: 150px
+}
+
+.lang {
+    border: none;
+    padding: unset;
+    margin-top: -10px;
+    opacity: 0.5;
+}
+
+.lang:hover {
+    opacity: 1;
 }

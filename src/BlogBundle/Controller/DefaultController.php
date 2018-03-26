@@ -14,4 +14,12 @@ class DefaultController extends Controller
     {
         return $this->render('blog/blog.html.twig');
     }
+
+    /**
+     * @Route("/blog-item", name="blog-item")
+     */
+    public function shopItemAction()
+    {
+        return $this->render('blog/posts/blog-item.html.twig');
+    }
 }

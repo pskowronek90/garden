@@ -4,10 +4,7 @@
     {{ parent() }}
     <title>{% block title %}{{ parent() }}{% endblock %}</title>
 
-    <script type="text/javascript" id="cookieinfo"
-            src="//cookieinfoscript.com/js/cookieinfo.min.js">
-    </script>
-
+    <script src="{{ asset('js/cookieinfo.js') }}"></script>
 
 {% endblock %}
 {% block body %}
@@ -101,7 +98,8 @@
                         <div class="media-body">
                             <img src="{{ asset('css/images/sample/slider/img6.jpeg') }}" alt="img1"/><br><br>
                             <h4 class="media-heading">Reasonable Price</h4>
-                            <p>Free of charge with limited use or only 5 EUR for all features. Check now our pricing options</p>
+                            <p>Free of charge with limited use or only 5 EUR for all features. Check now our pricing
+                                options</p>
                         </div>
                     </div>
                 </div>
@@ -193,6 +191,40 @@
                             </div>
                         </div>
                         <!-- /Carousel items -->
+
+                        <!-- SL Slider -->
+                        <script type="text/javascript">
+                            $(function () {
+                                var Page = (function () {
+
+                                    var $navArrows = $('#nav-arrows'),
+                                        slitslider = $('#slider').slitslider({
+                                            autoplay: true
+                                        }),
+
+                                        init = function () {
+                                            initEvents();
+                                        },
+                                        initEvents = function () {
+                                            $navArrows.children(':last').on('click', function () {
+                                                slitslider.next();
+                                                return false;
+                                            });
+
+                                            $navArrows.children(':first').on('click', function () {
+                                                slitslider.previous();
+                                                return false;
+                                            });
+                                        };
+
+                                    return {init: init};
+
+                                })();
+
+                                Page.init();
+                            });
+                        </script>
+                        <!-- /SL Slider -->
 
                     </div>
                 </div>

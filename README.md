@@ -1,7 +1,7 @@
 Floracare - Best Solutions for Your Garden
 =========
 
-![alt text](https://raw.githubusercontent.com/pskowronek90/garden/bootstrap/web/css/images/logo.png)
+![alt text](https://github.com/pskowronek90/garden/blob/master/web/css/images/logo.png?raw=true)
 
 Snapshots
 =========
