@@ -88,7 +88,6 @@ img {
     width: auto \9;
     height: auto;
     vertical-align: middle;
-    border: 2px solid azure;
     -ms-interpolation-mode: bicubic;
 }
 
@@ -4025,6 +4024,7 @@ a.thumbnail:hover, a.thumbnail:focus {
 
 .media-object {
     display: block;
+
 }
 
 .media-heading {
