@@ -26,7 +26,6 @@ class RegisterController extends Controller
         $email = $request->get('email');
         $password = $request->get('password');
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
-
         $filter = filter_var($email, FILTER_VALIDATE_EMAIL);
 
         if ($filter === false) {
@@ -36,15 +35,19 @@ class RegisterController extends Controller
             $user = new User();
             $user->setUsername($username);
             $user->setEmail($email);
-            $user->setPassword($hashPassword);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            if ($user->getEmail($email)) {
+                return $this->render("register/email-exists.html.twig");
+            } else {
+                $user->setPassword($hashPassword);
 
-            return $this->render("register/created-user.html.twig", ['User' => $user]);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+
+                return $this->render("register/created-user.html.twig", ['User' => $user]);
+            }
         }
-
     }
 
 }

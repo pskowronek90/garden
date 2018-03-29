@@ -1,0 +1,43 @@
+{% extends 'bootstrap.html.twig' %}
+{% block doctype %} {{ parent() }} {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <title>{% block title %}{{ parent() }} - Wrong E-mail{% endblock %}</title>
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+    <!-- /header -->
+    <section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Registration</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{{ path('homepage') }}">Home</a> <span class="divider">/</span></li>
+                        <li><a href="#">Pages</a> <span class="divider">/</span></li>
+                        <li class="active">Registration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->
+    <section id="registration-page" class="container">
+        <form class="center" action='' method="POST" role="form">
+            <fieldset class="registration-form">
+
+                <div class="control-group">
+                    <h2>E-mail is already used</h2>
+                    <div class="controls">
+                        <a href="{{ path('homepage') }}" class="btn btn-success btn-large btn-block">Go back to homepage</a>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </section>
+
+{% endblock %}
+{% block footer %}{% endblock %}
