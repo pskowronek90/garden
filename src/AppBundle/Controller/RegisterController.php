@@ -32,20 +32,23 @@ class RegisterController extends Controller
             return $this->render("register/incorrect-email.html.twig");
         } else {
 
+            $em = $this->getDoctrine()->getManager();
+            $userRepository = $em->getRepository(User::class);
+            $validEmail = $userRepository->findOneBy(['email' => $email]);
+
             $user = new User();
             $user->setUsername($username);
-            $user->setEmail($email);
 
-            if ($user->getEmail($email)) {
-                return $this->render("register/email-exists.html.twig");
-            } else {
+            if (!$validEmail) {
+                $user->setEmail($email);
                 $user->setPassword($hashPassword);
 
-                $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
 
                 return $this->render("register/created-user.html.twig", ['User' => $user]);
+            } else {
+                return $this->render("register/email-exists.html.twig");
             }
         }
     }
