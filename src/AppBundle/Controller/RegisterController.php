@@ -29,8 +29,8 @@ class RegisterController extends Controller
 
         $filter = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-        if ($filter == false) {
-            return $this->render("register/created-user.html.twig");
+        if ($filter === false) {
+            return $this->render("register/incorrect-email.html.twig");
         } else {
 
             $user = new User();
@@ -42,7 +42,7 @@ class RegisterController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->render("register/created-user.html.twig", ['username' => $user->getUsername()]);
+            return $this->render("register/created-user.html.twig", ['User' => $user]);
         }
 
     }
