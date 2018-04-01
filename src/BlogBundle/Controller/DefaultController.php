@@ -5,7 +5,7 @@ namespace BlogBundle\Controller;
 use BlogBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -22,10 +22,20 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/blog/blog-item", name="blog-item")
+     * @Route("/blog/{id}", name="showBlogItem", methods={"GET"})
      */
-    public function showItemAction()
+    public function showItemAction($id)
     {
-        return $this->render('blog/posts/blog-item.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $postsRepository = $em->getRepository(Post::class);
+        $post = $postsRepository->findOneBy(['id' => $id]);
+
+        if (!$post) {
+            throw new NotFoundHttpException();
+        } else {
+            return $this->render('blog/posts/blog-item.html.twig', ['post' => $post]);
+        }
+
+
     }
 }

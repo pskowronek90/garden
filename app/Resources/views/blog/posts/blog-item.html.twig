@@ -7,51 +7,20 @@
 {% block body %}
     {{ parent() }}
 
-    <section class="title">
-        <div class="container">
-            <div class="row-fluid">
-                <div class="span6">
-                    <h1>Blog Item</h1>
-                </div>
-                <div class="span6">
-                    <ul class="breadcrumb pull-right">
-                        <li><a href="{{ path('homepage') }}">Home</a> <span class="divider">/</span></li>
-                        <li><a href="#">Pages</a> <span class="divider">/</span></li>
-                        <li class="active">Blog Item</li>
-                    </ul>
-                </div>
+
+    <!-- / .title -->
+
+
+        <div class="col-md-12">
+            <h1>{{ post.subject }}</h1>
+            <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
+            <p>{{ post.content }}</p>
+            <div>
+                <span class="badge">Posted {{ post.date|date('d M Y') }}</span>
+                <div class="pull-left"><span class="label label-success">{{ post.category }}</span>&nbsp;&nbsp;</div>
             </div>
+            <hr>
         </div>
-    </section>
-<!-- / .title -->
 
-<section id="about-us" class="container">
-    <div class="row-fluid">
-        <div class="span8">
-            <div class="blog">
-                <div class="blog-item well">
-                    <a href="#"><h2>Item Subject</h2></a>
-                    <div class="blog-meta clearfix">
-                        <p class="pull-left">
-                            <i class="icon-folder-close"></i>
-                            Category <a href="#">Category Type</a> | <i class="icon-calendar"></i> Date
-                        </p>
-                        {#<p class="pull-right"><i class="icon-comment pull"></i> <a href="#comments">3 Comments</a></p>#}
-                    </div>
-                    <p><img src="{{ asset('css/images/sample/blog1.jpg') }}" width="100%" alt=""/></p>
-                    <p>Long Text</p>
-
-
-                    <div class="user-info media box">
-                        <div class="media-body">
-                            <div class="author-meta">
-                                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a>
-                                <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog Item -->
-
-                {% endblock %}
+{% endblock %}
 {% block footer %}{{ parent() }}{% endblock %}
