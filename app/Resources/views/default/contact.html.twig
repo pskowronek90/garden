@@ -7,8 +7,6 @@
 {% block body %}
     {{ parent() }}
 
-    {#@TODO PHPMailer#}
-
     <section id="contact-page" class="container">
         <div class="row-fluid">
 
@@ -24,7 +22,7 @@
                             <input type="text" id="subject" name="subject" class="input-block-level" required="required"
                                    placeholder="Topic of your message">
                             <label>Name and Last Name</label>
-                            <input type="text" name="name" id="name" class="input-block-level"
+                            <input type="text" name="sender" id="sender" class="input-block-level"
                                    required="required"
                                    placeholder="Your Name and Last Name">
                             <label>Email Address</label>
@@ -33,7 +31,7 @@
                                    placeholder="Your email address">
                         </div>
                         <div class="span7">
-                            <label>Message</label>
+                            <label for="message">Message</label>
                             <textarea name="message" id="message" required="required" class="input-block-level"
                                       rows="8"></textarea>
                         </div>
