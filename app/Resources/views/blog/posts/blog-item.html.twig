@@ -13,6 +13,9 @@
         <div>
             <span class="badge">Posted {{ post.date|date('d M Y') }}</span>
             <div class="pull-left"><span class="label label-success">{{ post.category }}</span>&nbsp;&nbsp;</div>
+            <div><br>
+                <a style="padding: 2px; border: 3px solid green" href="{{ path('blog') }}">Go back to Blog</a>
+            </div>
         </div>
         <hr>
     </div>
