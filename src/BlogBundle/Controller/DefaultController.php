@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Controller;
 
+use BlogBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,9 +12,13 @@ class DefaultController extends Controller
     /**
      * @Route("/blog", name="blog", methods={"GET"})
      */
-    public function blogAction()
+    public function showAllAction()
     {
-        return $this->render('blog/blog.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $postsRepository = $em->getRepository(Post::class);
+        $posts = $postsRepository->findAll();
+
+        return $this->render('blog/blog.html.twig', ['posts' => $posts]);
     }
 
     /**

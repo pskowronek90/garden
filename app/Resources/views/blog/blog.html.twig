@@ -23,101 +23,24 @@
         </div>
     </section>
     <!-- / .title -->
-    
-    <section id="about-us" class="container main">
-        <div class="row-fluid">
-            <div class="span8">
-                <div class="blog">
-                    <div class="blog-item well">
-                        <a href="{{ path('blog-item') }}"><h2>Subject</h2></a>
-                        <div class="blog-meta clearfix">
-                            <p class="pull-left">
-                                <i class="icon-folder-close"></i> Category <a href="#">Category Type</a> |
-                                <i class="icon-calendar"></i> Post Date
-                            </p>
-                        </div>
-                        <p><img src="{{ asset('css/images/sample/blog1.jpg') }}" width="100%" alt=""/></p>
-                        <p>Short Text</p>
-                        <a class="btn btn-link" href="#">Read More <i class="icon-angle-right"></i></a>
-                    </div>
-                    <!-- End Blog Item -->
+    <br>
+    <div class="container">
 
-                    <div class="gap"></div>
+        {% for post in posts %}
 
-                    {#<!-- Paginationa -->#}
-                    {#<div class="pagination">#}
-                    {#<ul>#}
-                    {#<li><a href="#"><i class="icon-angle-left"></i></a></li>#}
-                    {#<li class="active"><a href="#">1</a></li>#}
-                    {#<li><a href="#">2</a></li>#}
-                    {#<li><a href="#">3</a></li>#}
-                    {#<li><a href="#">4</a></li>#}
-                    {#<li><a href="#">5</a></li>#}
-                    {#<li><a href="#"><i class="icon-angle-right"></i></a></li>#}
-                    {#</ul>#}
-                    {#</div>#}
-
-
+            <div class="col-md-12">
+                <h1>{{ post.subject }}</h1>
+                <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
+                <p>{{ post.short }}</p>
+                <div>
+                    <span class="badge">Posted {{ post.date|date('d-F-Y') }}</span>
+                    <div class="pull-left"><span class="label label-success">{{ post.category }}&nbsp;</span></div>
                 </div>
+                <hr>
             </div>
-            <aside class="span4">
-                <div class="widget search">
-                    <form>
-                        <input type="text" class="input-block-level" placeholder="Search">
-                    </form>
-                </div>
-                <!-- /.search -->
 
-                <div class="widget widget-popular">
-                    <h3>Popular Posts</h3>
-                    <div class="widget-blog-items">
-                        <div class="widget-blog-item media">
-                            <div class="pull-left">
-                                <div class="date">
-                                    <span class="month">Jun</span>
-                                    <span class="day">24</span>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <a href="#"><h5>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris</h5></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Popular Posts -->
+        {% endfor %}
 
-                <div class="widget">
-                    <h3>Blog Categories</h3>
-                    <div>
-                        <div class="row-fluid">
-                            <div class="span6">
-                                <ul class="unstyled">
-                                    <li><a href="#">Development</a></li>
-                                    <li><a href="#">Design</a></li>
-                                    <li><a href="#">Updates</a></li>
-                                    <li><a href="#">Other</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Category Widget -->
-
-                <div class="widget">
-                    <h3>Archive</h3>
-                    <ul class="archive arrow">
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
-                        <li><a href="#">March 2013</a></li>
-                        <li><a href="#">February 2013</a></li>
-                    </ul>
-                </div>
-                <!-- End Archive Widget -->
-
-            </aside>
-        </div>
-
-    </section>
-
+    </div>
 {% endblock %}
 {% block footer %}{{ parent() }}{% endblock %}
