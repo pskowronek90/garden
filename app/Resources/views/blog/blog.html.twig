@@ -29,12 +29,12 @@
         {% for post in posts %}
 
             <div class="col-md-12">
-                <h1>{{ post.subject }}</h1>
+               <a href="{{ post.id }}"><h1>{{ post.subject }}</h1></a>
                 <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
                 <p>{{ post.short }}</p>
                 <div>
-                    <span class="badge">Posted {{ post.date|date('d-F-Y') }}</span>
-                    <div class="pull-left"><span class="label label-success">{{ post.category }}&nbsp;</span></div>
+                    <span class="badge">Posted {{ post.date|date('d M Y') }}</span>
+                    <div class="pull-left"><span class="label label-success">{{ post.category }}</span>&nbsp;&nbsp;</div>
                 </div>
                 <hr>
             </div>
