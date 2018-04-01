@@ -29,14 +29,15 @@ class BlogController extends Controller
         $category = $request->get('category');
         $content = $request->get('text');
         $photo = $request->get('photo');
+        $linkPhoto = "{{ asset('css/images/sample/blog/{$photo}') }}";
 
         $post = new Post();
         $post->setSubject($subject);
         $post->setShort($short);
         $post->setCategory($category);
         $post->setContent($content);
-        $post->setPhoto($photo);
-        $post->setDate(new \DateTime(date('d F Y')));
+        $post->setPhoto($linkPhoto);
+        $post->setDate(new \DateTime(date('d-F-Y')));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($post);

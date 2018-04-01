@@ -4,11 +4,12 @@ namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/blog", name="blog")
+     * @Route("/blog", name="blog", methods={"GET"})
      */
     public function blogAction()
     {
@@ -16,9 +17,9 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/blog-item", name="blog-item")
+     * @Route("/blog/blog-item", name="blog-item")
      */
-    public function shopItemAction()
+    public function showItemAction()
     {
         return $this->render('blog/posts/blog-item.html.twig');
     }
