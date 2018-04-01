@@ -6,21 +6,16 @@
 {% endblock %}
 {% block body %}
     {{ parent() }}
-
-
-    <!-- / .title -->
-
-
-        <div class="col-md-12">
-            <h1>{{ post.subject }}</h1>
-            <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
-            <p>{{ post.content }}</p>
-            <div>
-                <span class="badge">Posted {{ post.date|date('d M Y') }}</span>
-                <div class="pull-left"><span class="label label-success">{{ post.category }}</span>&nbsp;&nbsp;</div>
-            </div>
-            <hr>
+    <div class="col-md-12">
+        <h1>{{ post.subject }}</h1>
+        <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
+        <p>{{ post.content }}</p>
+        <div>
+            <span class="badge">Posted {{ post.date|date('d M Y') }}</span>
+            <div class="pull-left"><span class="label label-success">{{ post.category }}</span>&nbsp;&nbsp;</div>
         </div>
+        <hr>
+    </div>
 
 {% endblock %}
 {% block footer %}{{ parent() }}{% endblock %}
