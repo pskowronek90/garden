@@ -57,12 +57,4 @@ class NavbarController extends Controller
     {
         return $this->render('default/privacy.html.twig');
     }
-
-    /**
-     * @Route("/contact", name="contact", methods={"GET"})
-     */
-    public function contactAction(Request $request)
-    {
-        return $this->render('default/contact.html.twig');
-    }
 }
