@@ -1,0 +1,44 @@
+{% extends 'bootstrap.html.twig' %}
+{% block doctype %} {{ parent() }} {% endblock %}
+{% block head %}
+    {{ parent() }}
+<title>{% block title %}{{ parent() }} - Create Post{% endblock %}</title>
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+    <form method="post">
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input required type="text" class="form-control" id="subject" name="subject" placeholder="Post Subject">
+        </div>
+        <div class="form-group">
+            <label for="content">Short Text</label>
+            <input required type="text" class="form-control" id="short" name="short" placeholder="Short Text">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select required class="form-control" id="category" name="category">
+                <option value="development">Development</option>
+                <option value="design">Design</option>
+                <option value="update">Updates</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="photo">Photo (name.extension)</label>
+            <input required type="text" class="form-control" id="photo" name="photo">
+        </div>
+        <div class="form-group">
+            <label for="text">Text</label>
+            <textarea required class="form-control" id="text" name="text" rows="10" cols="40" style="resize: none; width: 80em"></textarea>
+        </div>
+        <div class="form-group">
+            <input required type="submit" value="Create Post">
+        </div>
+    </form>
+
+{% endblock %}
+{% block footer %}{{ parent() }}{% endblock %}
+
+

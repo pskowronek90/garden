@@ -120,15 +120,12 @@
         <!--Modal Body-->
         {#TODO Action - separate application site #}
         <div class="modal-body">
-            <form class="form-inline" action="/" method="post" id="form-login">
-                <input type="text" class="input-small" placeholder="Email">
-                <input type="password" class="input-small" placeholder="Password">
-                <label class="checkbox">
-                    <input type="checkbox"> Remember me
-                </label>
+            <form class="form-inline" action="{{ path('demo') }}" method="post" id="form-login">
+                <input id="login-panel" name="login-panel" type="text" class="input-small" placeholder="Email">
+                <input id="password-panel" name="password-panel" type="password" class="input-small" placeholder="Password">
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
-            <a href="#">Forgot my password</a>&nbsp;<a href="/register" style="float:  right">Create new account</a>
+            <a href="#">Forgot my password</a>&nbsp;<a href="{{ path('register-get') }}" style="float:  right">Create new account</a>
         </div>
         <!--/Modal Body-->
     </div>
