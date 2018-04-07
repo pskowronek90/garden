@@ -19,10 +19,9 @@
         <div class="form-group">
             <label for="category">Category</label>
             <select required class="form-control" id="category" name="category">
-                <option value="Development">Development</option>
-                <option value="Design">Design</option>
-                <option value="Update">Updates</option>
-                <option value="Other">Other</option>
+                {% for category in category %}
+                <option value="{{ category.type }}">{{ category.type }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="form-group">

@@ -28,7 +28,7 @@
         {% for post in posts %}
 
             <div class="col-md-12">
-               <a id="blog-link" href="/blog/{{ post.id }}"><h1>{{ post.subject }}</h1></a>
+               <a id="blog-link" href="{{ path('showBlogItem', {'id': post.id}) }}"><h1>{{ post.subject }}</h1></a>
                 <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
                 <p>{{ post.short }}</p>
                 <div>
