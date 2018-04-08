@@ -2,7 +2,13 @@
 {% block doctype %} {{ parent() }} {% endblock %}
 {% block head %}
     {{ parent() }}
-<title>{% block title %}{{ parent() }} - Create Post{% endblock %}</title>
+    <!-- Include Editor style. -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+
+    <!-- Include JS file. -->
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/js/froala_editor.min.js'></script>
+    <title>{% block title %}{{ parent() }} - Create Post{% endblock %}</title>
 {% endblock %}
 {% block body %}
     {{ parent() }}
@@ -20,7 +26,7 @@
             <label for="category">Category</label>
             <select required class="form-control" id="category" name="category">
                 {% for category in category %}
-                <option value="{{ category.type }}">{{ category.type }}</option>
+                    <option value="{{ category.type }}">{{ category.type }}</option>
                 {% endfor %}
             </select>
         </div>
