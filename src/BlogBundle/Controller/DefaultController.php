@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Controller;
 
+use BlogBundle\Entity\Category;
 use BlogBundle\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -16,9 +17,12 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $postsRepository = $em->getRepository(Post::class);
-        $posts = $postsRepository->findAll();
+        $posts = $postsRepository->sortNewestToOldest();
 
-        return $this->render('blog/blog.html.twig', ['posts' => $posts]);
+        $categoryRepository = $this->getDoctrine()->getRepository(Category::class);
+        $categories = $categoryRepository->findAll();
+
+        return $this->render('blog/blog.html.twig', ['posts' => $posts, 'categories' => $categories]);
     }
 
     /**
@@ -30,10 +34,13 @@ class DefaultController extends Controller
         $postsRepository = $em->getRepository(Post::class);
         $post = $postsRepository->findOneBy(['id' => $id]);
 
+        $categoryRepository = $this->getDoctrine()->getRepository(Category::class);
+        $category = $categoryRepository->findAll();
+
         if (!$post) {
             throw new NotFoundHttpException();
         } else {
-            return $this->render('blog/posts/blog-item.html.twig', ['post' => $post]);
+            return $this->render('blog/posts/blog-item.html.twig', ['post' => $post, 'category' => $category]);
         }
 
 

@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Controller;
 
+use BlogBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Asset\Packages;
@@ -16,7 +17,10 @@ class BlogController extends Controller
      */
     public function createGetAction()
     {
-        return $this->render("blog/posts/new.html.twig");
+        $categoryRepository = $this->getDoctrine()->getRepository(Category::class);
+        $category = $categoryRepository->findAll();
+
+        return $this->render("blog/posts/new.html.twig", ['category' => $category]);
     }
 
     /**
@@ -36,7 +40,7 @@ class BlogController extends Controller
         $post->setCategory($category);
         $post->setContent($content);
         $post->setPhoto($photo);
-        $post->setDate(new \DateTime(date('d-F-Y')));
+        $post->setDate(new \DateTime(date('d-F-Y H:i:s')));
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($post);

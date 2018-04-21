@@ -23,16 +23,16 @@ class ContactController extends Controller
     public function contactPostAction(Request $request, \Swift_Mailer $mailer)
     {
         $subject = $request->get('subject');
-        $sender = $request->get('name');
+        $from = $request->get('from');
         $email = $request->get('email');
         $text = $request->get('message');
 
         $message = (new \Swift_Message($subject));
-        $message->setFrom("floracare.official@gmail.com"); // tu powinien być adres nadawcy z $sender, ale wtedy jest
+        $message->setFrom('floracare.official@gmail.com'); // tu powinien być adres nadawcy z $sender, ale wtedy jest
         // błąd
         $message->setTo('floracare.official@gmail.com');
-        $message->setBody($this->render("contact/mail.html.twig", ['sender' => $email, 'text' => $text]), 'text/html');
-
+        $message->setBody($this->renderView("contact/mail.html.twig", ['from' => $from, 'text' => $text]), 'text/html');
+//        $message->setBody("<p>Test maila</p>");
         $mailer->send($message);
 
         return new Response('E-mail Sent');

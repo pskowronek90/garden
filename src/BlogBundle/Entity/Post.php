@@ -32,6 +32,9 @@ class Post
      * @var string
      *
      * @ORM\Column(name="category", type="string", length=255)
+     *
+     * @ORM\ManyToOne(targetEntity="BlogBundle\Entity\Category")
+     * @ORM\JoinColumn(name="category-name", referencedColumnName="id")
      */
     private $category;
 
@@ -52,7 +55,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
@@ -218,4 +221,3 @@ class Post
         return $this->photo;
     }
 }
-

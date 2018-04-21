@@ -10,4 +10,10 @@ namespace BlogBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function sortNewestToOldest()
+    {
+        return $this->getEntityManager()->createQuery('SELECT p FROM BlogBundle:Post p ORDER BY p.date DESC')
+            ->getResult();
+    }
+
 }
