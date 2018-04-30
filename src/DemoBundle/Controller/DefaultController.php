@@ -18,6 +18,15 @@ class DefaultController extends Controller
         return $this->render('demo/demo.html.twig');
     }
 
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function adminAction()
+    {
+        return $this->render('admin/dashboard.html.twig');
+    }
+
     /**
      * @Route("/homepage", name="panel-login", methods={"POST"})
      */
@@ -36,9 +45,11 @@ class DefaultController extends Controller
         if (!$validLogin) {
             throw new NotFoundHttpException();
         } else {
-            $this->render("demo/demo.html.twig");
+            $this->render("demo");
         }
 
     }
+
+
 
 }
