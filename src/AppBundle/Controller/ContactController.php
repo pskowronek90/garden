@@ -28,11 +28,13 @@ class ContactController extends Controller
         $text = $request->get('message');
 
         $message = (new \Swift_Message($subject));
-        $message->setFrom('floracare.official@gmail.com'); // tu powinien być adres nadawcy z $sender, ale wtedy jest
-        // błąd
+        $message->setFrom('floracare.official@gmail.com');
         $message->setTo('floracare.official@gmail.com');
-        $message->setBody($this->renderView("contact/mail.html.twig", ['from' => $from, 'text' => $text]), 'text/html');
-//        $message->setBody("<p>Test maila</p>");
+        $message->setBody($this->renderView("contact/mail.html.twig", [
+            'from' => $from,
+            'email' => $email,
+            'text' => $text
+        ]), 'text/html');
         $mailer->send($message);
 
         return new Response('E-mail Sent');
