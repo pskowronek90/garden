@@ -42,6 +42,10 @@ class User
      */
     private $password;
 
+    /**
+     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Plant", mappedBy="userID")
+     */
+    private $plants;
 
     /**
      * Get id
@@ -123,6 +127,11 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
     }
 }
 

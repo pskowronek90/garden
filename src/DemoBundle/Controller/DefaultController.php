@@ -11,29 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/demo", name="demo")
-     */
-    public function indexAction()
-    {
-        return $this->render('demo/demo.html.twig');
-    }
 
-    /**
-     * @Route("/admin", name="admin")
-     */
-    public function adminAction()
-    {
-        return $this->render('admin/dashboard.html.twig');
-    }
-
-    /**
-     * @Route("/tasks", name="tasks", methods={"GET"})
-     */
-    public function tasksAction()
-    {
-        return $this->render('admin/tasks.html.twig');
-    }
 
     /**
      * @Route("/homepage", name="panel-login", methods={"POST"})
