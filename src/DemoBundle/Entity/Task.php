@@ -38,11 +38,14 @@ class Task
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="date", type="date")
      */
     private $date;
 
     /**
+     *
+     * @var int
+     *
      * @ORM\ManyToOne(targetEntity="DemoBundle\Entity\Plant")
      * @ORM\JoinColumn(name="plant_id", referencedColumnName="id")
      */
@@ -130,14 +133,33 @@ class Task
         return $this->date;
     }
 
+
+
+
+
+
+
     /**
-     * @return mixed
+     * Set plant
+     *
+     * @param \DemoBundle\Entity\Plant $plant
+     *
+     * @return Task
+     */
+    public function setPlant(\DemoBundle\Entity\Plant $plant = null)
+    {
+        $this->plant = $plant;
+
+        return $this;
+    }
+
+    /**
+     * Get plant
+     *
+     * @return \DemoBundle\Entity\Plant
      */
     public function getPlant()
     {
         return $this->plant;
     }
-
-
 }
-
