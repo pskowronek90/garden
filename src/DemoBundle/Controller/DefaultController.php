@@ -6,6 +6,7 @@ use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
@@ -18,13 +19,20 @@ class DefaultController extends Controller
         return $this->render('demo/demo.html.twig');
     }
 
-
     /**
      * @Route("/admin", name="admin")
      */
     public function adminAction()
     {
         return $this->render('admin/dashboard.html.twig');
+    }
+
+    /**
+     * @Route("/tasks", name="tasks", methods={"GET"})
+     */
+    public function tasksAction()
+    {
+        return $this->render('admin/tasks.html.twig');
     }
 
     /**
@@ -45,7 +53,7 @@ class DefaultController extends Controller
         if (!$validLogin) {
             throw new NotFoundHttpException();
         } else {
-            $this->render("demo");
+            $this->render("admin/dashboard.html.twig");
         }
 
     }
