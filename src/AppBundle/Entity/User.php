@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,9 +43,14 @@ class User
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Plant", mappedBy="userID")
+     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Plant", mappedBy="user")
      */
     private $plants;
+
+    public function __construct()
+    {
+        $this->plants = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -129,9 +134,10 @@ class User
         return $this->password;
     }
 
-    public function __construct()
+    public function __toString()
     {
-        $this->products = new ArrayCollection();
+        return $this->username;
     }
+
 }
 

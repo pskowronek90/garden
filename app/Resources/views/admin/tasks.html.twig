@@ -1,0 +1,54 @@
+{% extends 'admin/base/admin.html.twig' %}
+{% block doctype %}{{ parent() }}{% endblock %}
+{% block head %}{{ parent() }}{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Current Tasks</h4>
+                            <p class="category">Here is a subtitle for this table</p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Planned Date</th>
+                                    <th>Plant</th>
+                                </tr>
+
+                                </thead>
+                                <tbody>
+
+                                {% for task in tasks %}
+
+                                <tr>
+                                    <td>{{ task.id }}</td>
+                                    <td>{{ task.name }}</td>
+                                    <td>{{ task.description }}</td>
+                                    <td>{{ task.date|date('Y-m-d H:i:s') }}</td>
+                                    <td>{{ task.plant.name }}</td>
+                                </tr>
+                                </tbody>
+
+                                {% endfor %}
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

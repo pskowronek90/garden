@@ -1,0 +1,18 @@
+{% extends 'admin/base/admin.html.twig' %}
+{% block doctype %}{{ parent() }}{% endblock %}
+{% block head %}{{ parent() }}{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+    <div id="map"></div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+    {{ parent() }}
+
+    Tutaj walnę jakieś api pogodowe
+
+{% endblock %}
