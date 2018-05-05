@@ -133,12 +133,6 @@ class Task
         return $this->date;
     }
 
-
-
-
-
-
-
     /**
      * Set plant
      *
@@ -162,4 +156,6 @@ class Task
     {
         return $this->plant;
     }
+
+
 }

@@ -63,35 +63,40 @@
                     </ul>
                     {# Top Panel #}
 
-                    <div style="float: left; clear: both" class="nav navbar-nav navbar-right">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Task
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">New</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Edit</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Delete</a>
-                                <div class="dropdown-divider"></div>
+                    <div class="card text-center">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item" style="color: blue">Tasks</li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ path('task-new-get') }}">New Task</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('task-edit-get') }}">Edit Task</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('task-delete-get') }}">Delete Task</a>
+                                </li>
+                                <li class="nav-item" style="color: green">Plants</li>
 
-                            </div>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ path('task-new-get') }}">New Plant</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('task-edit-get') }}">Edit Plant</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('task-delete-get') }}">Delete Plant</a>
+                                </li>
 
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Plant
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">New</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Edit</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Delete</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                            <a style="color: #0e0e0e" href="#">Logout</a>
+                                <li class="nav-item">
+                                    <a style="color: #0e0e0e" href="#">Logout</a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <div class="card-body">
+
                         </div>
                     </div>
                 </div>

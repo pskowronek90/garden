@@ -46,7 +46,7 @@ class TaskController extends Controller
         $task->setPlant($plantsRepository->findOneBy(['id' => $request->get('plantID')]));
 
         $em = $this->getDoctrine()->getManager();
-        $em->persist($task);
+        $em->merge($task);
         $em->flush();
 
         return new Response("Task Created");
@@ -57,7 +57,35 @@ class TaskController extends Controller
      */
     public function editGetAction()
     {
-        return $this->render("admin/task/edit.html.twig");
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->findAll();
+
+        return $this->render("admin/task/edit.html.twig", ['tasks' => $tasks]);
+    }
+
+    /**
+     * @Route("/edit", name="task-edit-post", methods={"POST"})
+     */
+    public function editPostAction(Request $request)
+    {
+        $id = $request->get('taskID');
+        $name = $request->get('taskName');
+        $description = $request->get('taskDesc');
+        $date = $request->get('taskDate');
+
+
+
+        $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
+
+        $task->setName($name);
+        $task->setDescription($description);
+        $task->setDate(\DateTime::createFromFormat("Y-m-d", $date));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($task);
+        $em->flush();
+
+        return new Response("Task updated");
+
     }
 
     /**
@@ -65,7 +93,26 @@ class TaskController extends Controller
      */
     public function deleteGetAction()
     {
-        return $this->render("admin/task/delete.html.twig");
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->findAll();
+
+        return $this->render("admin/task/delete.html.twig", ['tasks' => $tasks]);
+    }
+
+    /**
+     * @Route("/delete", name="task-delete-post", methods={"post"})
+     */
+    public function deletePostAction(Request $request)
+    {
+        $tasksRepo = $this->getDoctrine()->getRepository(Task::class);
+
+        $id = $request->get('taskID');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($tasksRepo->findOneBy(['id' => $id]));
+        $em->flush();
+
+        return new Response("Task deleted");
+
     }
 
 }

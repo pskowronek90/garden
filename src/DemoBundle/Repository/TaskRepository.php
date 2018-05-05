@@ -10,4 +10,5 @@ namespace DemoBundle\Repository;
  */
 class TaskRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
