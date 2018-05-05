@@ -4,6 +4,7 @@ namespace DemoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Plant
@@ -39,7 +40,9 @@ class Plant
     /**
      * @var string
      *
-     * @ORM\Column(name="photo", type="string", length=255)
+     * @Assert\File(mimeTypes={ "{image/jpg}, {image/jpeg}, {image/png}" })
+     * @ORM\Column(name="photo", type="text")
+     *
      */
     private $photo;
 

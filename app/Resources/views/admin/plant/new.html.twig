@@ -1,0 +1,48 @@
+{% extends 'admin/base/admin.html.twig' %}
+{% block doctype %}{{ parent() }}{% endblock %}
+{% block head %}{{ parent() }}{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Create New Plant</h4>
+                    </div>
+                    <div class="content">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" name="plantName">
+
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea cols="40" name="plantDesc" class="form-control"></textarea>
+                                        </div>
+                                            <label>Photo</label>
+                                            <input type="file" name="plantPhoto" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-fill pull-left">Create Plant</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endblock %}
+
+
+            {% block footer %}
+            {{ parent() }}
+
+{% endblock %}
