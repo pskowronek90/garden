@@ -42,14 +42,6 @@ class NavbarController extends Controller
     }
 
     /**
-     * @Route("/terms", name="terms")
-     */
-    public function termsAction()
-    {
-        return $this->render('default/terms.html.twig');
-    }
-
-    /**
      * @Route("/privacy", name="privacy")
      */
     public function privacyAction()
