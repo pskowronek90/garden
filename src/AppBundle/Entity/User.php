@@ -49,6 +49,11 @@ class User implements UserInterface, \Serializable
      */
     private $plants;
 
+    /**
+     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Task", mappedBy="user")
+     */
+    private $tasks;
+
     public function __construct()
     {
         $this->plants = new ArrayCollection();
@@ -212,4 +217,40 @@ class User implements UserInterface, \Serializable
     {
         return $this->plants;
     }
+
+    /**
+     * Add task
+     *
+     * @param \DemoBundle\Entity\Task $task
+     *
+     * @return User
+     */
+    public function addTask(\DemoBundle\Entity\Task $task)
+    {
+        $this->tasks[] = $task;
+
+        return $this;
+    }
+
+    /**
+     * Remove task
+     *
+     * @param \DemoBundle\Entity\Task $task
+     */
+    public function removeTask(\DemoBundle\Entity\Task $task)
+    {
+        $this->tasks->removeElement($task);
+    }
+
+    /**
+     * Get tasks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
+
+
 }

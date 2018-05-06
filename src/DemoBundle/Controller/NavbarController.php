@@ -22,9 +22,11 @@ class NavbarController extends Controller
      */
     public function adminGetAction()
     {
-        $activeTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 1]);
-        $completedTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 0]);
-        $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
+        $activeTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 1, 'user' =>
+            $this->getUser()->getId()]);
+        $completedTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 0, 'user' =>
+            $this->getUser()->getId()]);
+        $plants = $this->getDoctrine()->getRepository(Plant::class)->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render('admin/dashboard.html.twig',
             ['activeTasks' => $activeTasks, 'completedTasks' => $completedTasks, 'plants' => $plants]);
@@ -52,7 +54,7 @@ class NavbarController extends Controller
     public function tasksAction()
     {
         $tasksRepository = $this->getDoctrine()->getRepository(Task::class);
-        $tasks = $tasksRepository->findAll();
+        $tasks = $tasksRepository->findBy(['status' => 0, 'user' => $this->getUser()->getId()]);
 
         return $this->render('admin/tasks.html.twig', ['tasks' => $tasks]);
     }

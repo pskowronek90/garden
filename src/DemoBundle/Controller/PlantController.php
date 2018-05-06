@@ -111,6 +111,7 @@ class PlantController extends Controller
         $plant->setName($name);
         $plant->setDescription($description);
         $plant->setPhoto($fileName);
+        $plant->setUser($this->getUser());
 
         $em = $this->getDoctrine()->getManager();
         $em->merge($plant);

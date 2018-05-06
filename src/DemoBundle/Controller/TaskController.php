@@ -2,6 +2,7 @@
 
 namespace DemoBundle\Controller;
 
+use AppBundle\Entity\User;
 use DemoBundle\Entity\Plant;
 use DemoBundle\Entity\Task;
 use DemoBundle\Entity\Tasker;
@@ -45,7 +46,8 @@ class TaskController extends Controller
         $task->setDescription($description);
         $task->setDate(\DateTime::createFromFormat("Y-m-d", $date));
         $task->setPlant($plantsRepository->findOneBy(['id' => $request->get('plantID')]));
-        $task->setStatus("active");
+        $task->setStatus(1);
+        $task->setUser($this->getUser());
 
         $em = $this->getDoctrine()->getManager();
         $em->merge($task);
@@ -75,6 +77,7 @@ class TaskController extends Controller
         $status = $request->get('status');
 
         $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
+
 
         $task->setDescription($description);
         $task->setDate(\DateTime::createFromFormat("Y-m-d", $date));
