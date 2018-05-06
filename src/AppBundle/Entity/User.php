@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -142,17 +143,29 @@ class User implements UserInterface, \Serializable
 
     public function serialize()
     {
-        // TODO: Implement serialize() method.
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
     }
 
     public function unserialize($serialized)
     {
-        // TODO: Implement unserialize() method.
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return ['ROLE_USER', 'ROLE_ADMIN'];
     }
 
     public function getSalt()
@@ -165,5 +178,38 @@ class User implements UserInterface, \Serializable
         // TODO: Implement eraseCredentials() method.
     }
 
-}
 
+    /**
+     * Add plant
+     *
+     * @param \DemoBundle\Entity\Plant $plant
+     *
+     * @return User
+     */
+    public function addPlant(\DemoBundle\Entity\Plant $plant)
+    {
+        $this->plants[] = $plant;
+
+        return $this;
+    }
+
+    /**
+     * Remove plant
+     *
+     * @param \DemoBundle\Entity\Plant $plant
+     */
+    public function removePlant(\DemoBundle\Entity\Plant $plant)
+    {
+        $this->plants->removeElement($plant);
+    }
+
+    /**
+     * Get plants
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlants()
+    {
+        return $this->plants;
+    }
+}

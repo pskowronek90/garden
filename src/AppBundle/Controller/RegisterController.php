@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $username = $request->get('username');
         $email = $request->get('email');
         $password = $request->get('password');
-        $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashPassword = password_hash($password, PASSWORD_BCRYPT);
         $filter = filter_var($email, FILTER_VALIDATE_EMAIL);
 
         if ($filter === false) {

@@ -1,4 +1,4 @@
-# app/Resources/views/security/login.html.twig
+
 <html>
 <body>
 {# app/Resources/views/security/login.html.twig #}
@@ -8,12 +8,14 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
+<img src="{{ asset('css/images/logo.png') }}" alt="logo">
+
 <form action="{{ path('login') }}" method="post">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <input type="text" id="username" name="_username" value="{{ last_username }}" /><br>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="_password" />
+    <input type="password" id="password" name="_password" /><br>
 
     {#
         If you want to control the URL the user
@@ -25,3 +27,5 @@
 </form>
 </body>
 </html>
+
+

@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Current Tasks</h4>
+                            <h4 class="title">Task Log</h4>
                             <p class="category">Here is a subtitle for this table</p>
                         </div>
                         <div class="content table-responsive table-full-width">
@@ -20,6 +20,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Status</th>
                                     <th>Description</th>
                                     <th>Planned Date</th>
                                     <th>Plant</th>
@@ -32,6 +33,7 @@
 
                                 <tr>
                                     <td>{{ task.id }}</td>
+                                    <td>{{ task.status }}</td>
                                     <td>{{ task.description }}</td>
                                     <td>{{ task.date|date('d F Y') }}</td>
                                     <td>{{ task.plant.name }}</td>
