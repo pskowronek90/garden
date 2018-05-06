@@ -120,9 +120,10 @@
         <!--Modal Body-->
         {#TODO Action - separate application site #}
         <div class="modal-body">
-            <form class="form-inline" action="{{ path('admin') }}" method="post" id="form-login">
-                <input id="login-panel" name="login-panel" type="text" class="input-small" placeholder="Email">
-                <input id="password-panel" name="password-panel" type="password" class="input-small" placeholder="Password">
+            {#<form class="form-inline" action="{{ path('admin-get') }}" method="post" id="form-login">#}
+            <form class="form-inline" action="{{ path('login') }}" method="post" id="form-login">
+                <input id="login-panel" name="username" type="text" class="input-small" placeholder="Email">
+                <input id="password-panel" name="password" type="password" class="input-small" placeholder="Password">
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <a href="#">Forgot my password</a>&nbsp;<a href="{{ path('register-get') }}" style="float:  right">Create new account</a>

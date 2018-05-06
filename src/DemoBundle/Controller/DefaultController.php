@@ -13,6 +13,8 @@ class DefaultController extends Controller
 {
 
 
+
+
     /**
      * @Route("/homepage", name="panel-login", methods={"POST"})
      */
@@ -31,7 +33,7 @@ class DefaultController extends Controller
         if (!$validLogin) {
             throw new NotFoundHttpException();
         } else {
-            $this->render("admin/dashboard.html.twig");
+            $this->redirectToRoute("admin");
         }
 
     }

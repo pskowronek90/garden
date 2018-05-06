@@ -17,12 +17,23 @@ class NavbarController extends Controller
     }
 
     /**
-     * @Route("/admin", name="admin", methods={"GET"})
+     * @Route("/admin", name="admin-get", methods={"GET"})
      */
-    public function adminAction()
+    public function adminGetAction()
     {
         return $this->render('admin/dashboard.html.twig');
     }
+
+    /**
+     * @Route("/admin", name="admin-post", methods={"POST"})
+     */
+    public function adminPostAction()
+    {
+        return $this->render('admin/dashboard.html.twig');
+    }
+
+
+
 
     /**
      * @Route("/user", name="user", methods={"GET"})

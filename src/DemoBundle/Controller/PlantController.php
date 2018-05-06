@@ -30,15 +30,9 @@ class PlantController extends Controller
      */
     public function newPostAction(Request $request)
     {
-        $file = $request->files->get('plantPhoto');
-//        var_dump($_FILES);
-//        exit;
+
         $name = $request->get('plantName');
         $description = $request->get('plantDesc');
-//        $photo = $request->get('plantPhoto');
-//        var_dump($photo);
-//        exit;
-
 
         $plant = new Plant();
         $plant->setName($name);
@@ -82,7 +76,48 @@ class PlantController extends Controller
      */
     public function editGetAction()
     {
-        return $this->render("admin/plant/edit.html.twig");
+        $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
+
+        return $this->render("admin/plant/edit.html.twig", ['plants' => $plants]);
+    }
+
+
+    /**
+     * @Route("/edit", name="plant-edit-post", methods={"POST"})
+     */
+    public function editPostAction(Request $request)
+    {
+        $id = $request->get('plantID');
+        $name = $request->get('plantName');
+        $description = $request->get('plantDesc');
+        $file = $request->files->get('plantPhoto');
+
+        /** @var UploadedFile $file */
+        $file = $request->files->get('plantPhoto');
+        $fileName = $this->generateUniqueFileName() . '.' . '.jpeg';
+
+
+        // moves the file to the directory where brochures are stored
+        $file->move(
+            $this->getParameter('plants_directory'),
+            $fileName
+        );
+
+        // updates the 'brochure' property to store the PDF file name
+        // instead of its contents
+
+        $plant = $this->getDoctrine()->getRepository(Plant::class)->findOneBy(['id' => $id]);
+
+        $plant->setName($name);
+        $plant->setDescription($description);
+        $plant->setPhoto($fileName);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->merge($plant);
+        $em->flush();
+
+        return new Response("Plant Updated");
+
     }
 
     /**
@@ -90,6 +125,24 @@ class PlantController extends Controller
      */
     public function deleteGetAction()
     {
-        return $this->render("admin/plant/delete.html.twig");
+        $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
+
+        return $this->render("admin/plant/delete.html.twig", ['plants' => $plants]);
+    }
+
+    /**
+     * @Route("/delete", name="plant-delete-post", methods={"POST"})
+     */
+    public function deletePostAction(Request $request)
+    {
+        $plants = $this->getDoctrine()->getRepository(Plant::class);
+
+        $id = $request->get('plantID');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($plants->findOneBy(['id' => $id]));
+        $em->flush();
+
+        return new Response("Plant deleted");
     }
 }

@@ -1,21 +1,55 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'admin/base/admin.html.twig' %}
+{% block doctype %}{{ parent() }}{% endblock %}
+{% block head %}{{ parent() }}{% endblock %}
 {% block body %}
-    <h1>Plant edit</h1>
+    {{ parent() }}
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('plant_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Plant</h4>
+                    </div>
+                    <div class="content">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Plant</label><br>
+                                        <select name="plantID">
+                                            {% for plant in plants %}
+                                            <option value="{{ plant.id }}">{{ plant.name }}</option>
+                                            {% endfor %}
+                                        </select><br>
+
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" name="plantName">
+
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea cols="40" name="plantDesc" class="form-control"></textarea>
+                                        </div>
+                                        <label>Photo</label>
+                                        <input type="file" name="plantPhoto" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-left">Update Plant</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            {% endblock %}
+
+
+            {% block footer %}
+            {{ parent() }}
+
 {% endblock %}

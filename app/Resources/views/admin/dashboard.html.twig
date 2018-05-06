@@ -5,23 +5,88 @@
     {{ parent() }}
 
 
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">My Flowers</h4>
-                        <p class="category">Flowers List</p>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">My Plants</h4>
+                        </div>
+                        <div class="content">
+                            <div id="chartHours" class="ct-chart">List HERE</div>
+                        </div>
                     </div>
-                    <div class="content">
-                        sfdss
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card ">
+                        <div class="header">
+                            <h4 class="title">Weather</h4>
+                        </div>
+                        <div class="content">
+                            <div id="chartActivity" class="ct-chart">
+                                <div id="openweathermap-widget-15"></div>
+                                <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+                                    window.myWidgetParam.push({
+                                        id: 15,
+                                        cityid: '3088171',
+                                        appid: 'b8905cb5e31a9326e1ab0e1e58b78fed',
+                                        units: 'metric',
+                                        containerid: 'openweathermap-widget-15',
+                                    });
+                                    (function () {
+                                        var script = document.createElement('script');
+                                        script.async = true;
+                                        script.charset = "utf-8";
+                                        script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                                        var s = document.getElementsByTagName('script')[0];
+                                        s.parentNode.insertBefore(script, s);
+                                    })();</script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8    ">
+                    <div class="card ">
+                        <div class="header">
+                            <h4 class="title">Tasks</h4>
+                        </div>
+                        <div class="content">
+                            <div class="table-full-width">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="checkbox">
+                                                DATA
+                                            </div>
+                                        </td>
+                                        <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="Edit Task"
+                                                    class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="Remove"
+                                                    class="btn btn-danger btn-simple btn-xs">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 {% endblock %}
