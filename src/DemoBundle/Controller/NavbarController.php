@@ -54,7 +54,7 @@ class NavbarController extends Controller
     public function tasksAction()
     {
         $tasksRepository = $this->getDoctrine()->getRepository(Task::class);
-        $tasks = $tasksRepository->findBy(['status' => 0, 'user' => $this->getUser()->getId()]);
+        $tasks = $tasksRepository->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render('admin/tasks.html.twig', ['tasks' => $tasks]);
     }

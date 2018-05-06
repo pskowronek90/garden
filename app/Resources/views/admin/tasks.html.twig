@@ -19,7 +19,6 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Status</th>
                                     <th>Description</th>
                                     <th>Planned Date</th>
@@ -32,7 +31,6 @@
                                 {% for task in tasks %}
 
                                 <tr>
-                                    <td>{{ task.id }}</td>
                                     <td>{{ task.status }}</td>
                                     <td>{{ task.description }}</td>
                                     <td>{{ task.date|date('d F Y') }}</td>
