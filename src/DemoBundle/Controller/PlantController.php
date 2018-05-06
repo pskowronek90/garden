@@ -53,6 +53,7 @@ class PlantController extends Controller
         // instead of its contents
 
         $plant->setPhoto($fileName);
+        $plant->setUser($this->getUser());
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($plant);
