@@ -24,43 +24,44 @@
                                         <select name="taskID">
                                             {% for task in tasks %}
                                                 <option value="{{ task.id }}">
-                                                    {{ task.name }}
+                                                    {{ task.description }}
                                                 </option>
                                             {% endfor %}
                                         </select>
                                     </div>
 
-
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea cols="40" name="taskDesc" class="form-control"
+                                                  placeholder="New Description"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Planned Date</label>
+                                        <input type="date" name="taskDate" class="form-control">
+                                    </div>
 
                                     <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" class="form-control" name="taskName" value="" placeholder="New Title">
-
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea cols="40" name="taskDesc" class="form-control" placeholder="New Description"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Planned Date</label>
-                                            <input type="date" name="taskDate" class="form-control">
-                                        </div>
-
-
+                                        <label>Status</label>
+                                        <select name="status">
+                                            <option value="1">Active</option>
+                                            <option value="0">Completed</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-left">Update Task</button>
-                            <div class="clearfix"></div>
-                        </form>
                     </div>
+                    <button type="submit" class="btn btn-info btn-fill pull-left">Update Task</button>
+                    <div class="clearfix"></div>
+                    </form>
                 </div>
             </div>
+        </div>
 
 
-            {% endblock %}
+        {% endblock %}
 
 
-            {% block footer %}
-            {{ parent() }}
+        {% block footer %}
+        {{ parent() }}
 
 {% endblock %}

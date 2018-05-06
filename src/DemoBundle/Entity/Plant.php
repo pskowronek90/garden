@@ -160,5 +160,42 @@ class Plant
         return $this->tasks;
     }
 
-}
 
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Plant
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Add task
+     *
+     * @param \DemoBundle\Entity\Task $task
+     *
+     * @return Plant
+     */
+    public function addTask(\DemoBundle\Entity\Task $task)
+    {
+        $this->tasks[] = $task;
+
+        return $this;
+    }
+
+    /**
+     * Remove task
+     *
+     * @param \DemoBundle\Entity\Task $task
+     */
+    public function removeTask(\DemoBundle\Entity\Task $task)
+    {
+        $this->tasks->removeElement($task);
+    }
+}

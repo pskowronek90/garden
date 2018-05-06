@@ -15,7 +15,12 @@
                             <h4 class="title">My Plants</h4>
                         </div>
                         <div class="content">
-                            <div id="chartHours" class="ct-chart">List HERE</div>
+                            <div id="chartHours" class="ct-chart">
+                                {% for plant in plants %}
+                                    <img id="plant-photo" src="{{ asset('plants/' ~ plant.photo) }} ">
+                                    <span>{{ plant.name }}</span>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -59,25 +64,28 @@
                         <div class="content">
                             <div class="table-full-width">
                                 <table class="table">
+                                    <p style="color: yellow">&nbsp;&nbsp;Active Tasks</p>
                                     <tbody>
+                                    {% for activeTask in activeTasks %}
                                     <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                DATA
-                                            </div>
-                                        </td>
-                                        <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task"
-                                                    class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove"
-                                                    class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
+                                        <td>{{ activeTask.date|date("d F")}}</td>
+                                        <td>{{ activeTask.description }}</td>
+                                        <td>{{ activeTask.plant.name }}</td>
                                     </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <p style="color: green">&nbsp;&nbsp;Completed Tasks</p>
+                                    <tbody>
+                                    {% for completedTask in completedTasks %}
+                                        <tr>
+                                            <td>{{ completedTask.date|date("d F")}}</td>
+                                            <td>{{ completedTask.description }}</td>
+                                            <td>{{ completedTask.plant.name }}</td>
+                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

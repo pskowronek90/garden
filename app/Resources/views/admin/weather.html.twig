@@ -4,7 +4,22 @@
 {% block body %}
     {{ parent() }}
 
-    <div id="map"></div>
+    <div id="map">
+        <a class="weatherwidget-io" href="https://forecast7.com/en/52d4116d93/poznan/" data-label_1="POZNAŃ"
+           data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="kiwi" data-textcolor="#e7f1e6">POZNAŃ
+            WEATHER</a>
+        <script>
+            !function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = 'https://weatherwidget.io/js/widget.min.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'weatherwidget-io-js');
+        </script>
+    </div>
 
 
 {% endblock %}
@@ -13,6 +28,6 @@
 {% block footer %}
     {{ parent() }}
 
-    Tutaj walnę jakieś api pogodowe
+
 
 {% endblock %}

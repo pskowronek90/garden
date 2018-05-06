@@ -4,6 +4,8 @@ namespace DemoBundle\Controller;
 
 use DemoBundle\Entity\Plant;
 use DemoBundle\Entity\Task;
+use DemoBundle\Entity\Tasker;
+use DemoBundle\Entity\TaskTypes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +23,7 @@ class TaskController extends Controller
      */
     public function newGetAction()
     {
+
         $plantsRepository = $this->getDoctrine()->getRepository(Plant::class);
         $plants = $plantsRepository->findAll();
 
@@ -33,17 +36,16 @@ class TaskController extends Controller
     public function newPostAction(Request $request)
     {
 
-        $name = $request->get('taskName');
         $description = $request->get('taskDesc');
         $date = $request->get('taskDate');
 
         $plantsRepository = $this->getDoctrine()->getRepository(Plant::class);
 
         $task = new Task();
-        $task->setName($name);
         $task->setDescription($description);
         $task->setDate(\DateTime::createFromFormat("Y-m-d", $date));
         $task->setPlant($plantsRepository->findOneBy(['id' => $request->get('plantID')]));
+        $task->setStatus("active");
 
         $em = $this->getDoctrine()->getManager();
         $em->merge($task);
@@ -68,17 +70,15 @@ class TaskController extends Controller
     public function editPostAction(Request $request)
     {
         $id = $request->get('taskID');
-        $name = $request->get('taskName');
         $description = $request->get('taskDesc');
         $date = $request->get('taskDate');
-
-
+        $status = $request->get('status');
 
         $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
 
-        $task->setName($name);
         $task->setDescription($description);
         $task->setDate(\DateTime::createFromFormat("Y-m-d", $date));
+        $task->setStatus($status);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($task);

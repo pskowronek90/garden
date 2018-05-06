@@ -2,6 +2,7 @@
 
 namespace DemoBundle\Controller;
 
+use DemoBundle\Entity\Plant;
 use DemoBundle\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,7 +22,12 @@ class NavbarController extends Controller
      */
     public function adminGetAction()
     {
-        return $this->render('admin/dashboard.html.twig');
+        $activeTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 1]);
+        $completedTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 0]);
+        $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
+
+        return $this->render('admin/dashboard.html.twig',
+            ['activeTasks' => $activeTasks, 'completedTasks' => $completedTasks, 'plants' => $plants]);
     }
 
     /**
@@ -31,9 +37,6 @@ class NavbarController extends Controller
     {
         return $this->render('admin/dashboard.html.twig');
     }
-
-
-
 
     /**
      * @Route("/user", name="user", methods={"GET"})

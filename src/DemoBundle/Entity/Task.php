@@ -24,13 +24,6 @@ class Task
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
@@ -41,6 +34,13 @@ class Task
      * @ORM\Column(name="date", type="date")
      */
     private $date;
+
+    /**
+     * @var string
+     * @ORM\Column(name="status", type="string")
+     *
+     */
+    private $status;
 
     /**
      *
@@ -61,29 +61,6 @@ class Task
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Task
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Set description
@@ -156,6 +133,27 @@ class Task
     {
         return $this->plant;
     }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
+
+
+
 
 
 }
