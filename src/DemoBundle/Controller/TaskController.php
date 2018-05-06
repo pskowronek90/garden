@@ -26,7 +26,7 @@ class TaskController extends Controller
     {
 
         $plantsRepository = $this->getDoctrine()->getRepository(Plant::class);
-        $plants = $plantsRepository->findAll();
+        $plants = $plantsRepository->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render("admin/task/new.html.twig", ['plants' => $plants]);
     }
@@ -61,7 +61,7 @@ class TaskController extends Controller
      */
     public function editGetAction()
     {
-        $tasks = $this->getDoctrine()->getRepository(Task::class)->findAll();
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render("admin/task/edit.html.twig", ['tasks' => $tasks]);
     }
@@ -96,7 +96,7 @@ class TaskController extends Controller
      */
     public function deleteGetAction()
     {
-        $tasks = $this->getDoctrine()->getRepository(Task::class)->findAll();
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render("admin/task/delete.html.twig", ['tasks' => $tasks]);
     }

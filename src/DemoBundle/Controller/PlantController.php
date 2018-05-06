@@ -76,7 +76,7 @@ class PlantController extends Controller
      */
     public function editGetAction()
     {
-        $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
+        $plants = $this->getDoctrine()->getRepository(Plant::class)->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render("admin/plant/edit.html.twig", ['plants' => $plants]);
     }
@@ -126,7 +126,7 @@ class PlantController extends Controller
      */
     public function deleteGetAction()
     {
-        $plants = $this->getDoctrine()->getRepository(Plant::class)->findAll();
+        $plants = $this->getDoctrine()->getRepository(Plant::class)->findBy(['user' => $this->getUser()->getId()]);
 
         return $this->render("admin/plant/delete.html.twig", ['plants' => $plants]);
     }
