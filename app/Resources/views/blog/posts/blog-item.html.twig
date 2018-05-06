@@ -7,6 +7,7 @@
 {% block body %}
     {{ parent() }}
     <div class="col-md-12">
+        <br><br><br>
         <h1>{{ post.subject }}</h1>
         <img style="width: 256px; height: 170px" src="{{ asset('css/images/sample/blog/' ~ post.photo) }} ">
         <p>{{ post.content | raw }}</p>
