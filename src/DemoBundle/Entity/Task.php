@@ -2,6 +2,7 @@
 
 namespace DemoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,15 +51,6 @@ class Task
      * @ORM\JoinColumn(name="plant_id", referencedColumnName="id")
      */
     private $plant;
-
-    /**
-     *
-     * @var int
-     *
-     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Comment", mappedBy="comments")
-     * @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
-     */
-    private $comment;
 
 
     /**
@@ -169,13 +161,6 @@ class Task
         $this->status = $status;
     }
 
-
-
-
-
-
-
-
     /**
      * Set user
      *
@@ -200,21 +185,42 @@ class Task
         return $this->user;
     }
 
+
+
+
+
+
     /**
-     * @return int
+     * Add comment
+     *
+     * @param \DemoBundle\Entity\Comment $comment
+     *
+     * @return Task
      */
-    public function getComment(): int
+    public function addComment(\DemoBundle\Entity\Comment $comment)
     {
-        return $this->comment;
+        $this->comments[] = $comment;
+
+        return $this;
     }
 
     /**
-     * @param int $comment
+     * Remove comment
+     *
+     * @param \DemoBundle\Entity\Comment $comment
      */
-    public function setComment(int $comment)
+    public function removeComment(\DemoBundle\Entity\Comment $comment)
     {
-        $this->comment = $comment;
+        $this->comments->removeElement($comment);
     }
 
-
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }

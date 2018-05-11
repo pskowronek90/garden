@@ -34,6 +34,7 @@
                                     <td>{{ task.description }}</td>
                                     <td>{{ task.date|date('d F Y') }}</td>
                                     <td>{{ task.plant.name }}</td>
+                                    <td><a href="{{ path('task-details-get', {'id': task.id}) }}">Details</a> </td>
                                 </tr>
                                 </tbody>
 

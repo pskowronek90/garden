@@ -3,6 +3,7 @@
 namespace DemoBundle\Controller;
 
 use AppBundle\Entity\User;
+use DemoBundle\Entity\Comment;
 use DemoBundle\Entity\Plant;
 use DemoBundle\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -114,6 +115,17 @@ class TaskController extends Controller
 
         return new Response("Task deleted");
 
+    }
+
+    /**
+     * @Route("/details/{id}", name="task-details-get", methods={"GET"})
+     */
+    public function detailsAction($id)
+    {
+        $task = $this->getDoctrine()->getRepository(Task::class)->findOneBy(['id' => $id]);
+        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['task' => $id]);
+
+        return $this->render('admin/task/details.html.twig', ['task' => $task, 'comments' => $comments]);
     }
 
 }
