@@ -3868,3 +3868,9 @@ fieldset[disabled] .btn-neutral.active {
     }
 }
 
+#added {
+    color: #9d9d9d;
+    font-size: small;
+    font-family: Roboto;
+    font-style: italic;
+}

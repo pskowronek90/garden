@@ -29,6 +29,13 @@ class Comment
     private $content;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="timestamp", type="string", length=255)
+     */
+    private $timestamp;
+
+    /**
      * @ORM\ManyToOne(targetEntity="DemoBundle\Entity\Task", inversedBy="comments")
      * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
      */
@@ -92,4 +99,24 @@ class Comment
     {
         return $this->task;
     }
+
+    /**
+     * @return string
+     */
+    public function getTimestamp(): string
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param string $timestamp
+     */
+    public function setTimestamp(string $timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
+
+
+
 }

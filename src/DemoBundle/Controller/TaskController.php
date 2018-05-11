@@ -123,7 +123,7 @@ class TaskController extends Controller
     public function detailsAction($id)
     {
         $task = $this->getDoctrine()->getRepository(Task::class)->findOneBy(['id' => $id]);
-        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['task' => $id]);
+        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['task' => $task]);
 
         return $this->render('admin/task/details.html.twig', ['task' => $task, 'comments' => $comments]);
     }
