@@ -54,6 +54,11 @@ class User implements UserInterface, \Serializable
      */
     private $tasks;
 
+    /**
+     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Comment", mappedBy="user")
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->plants = new ArrayCollection();
@@ -251,6 +256,24 @@ class User implements UserInterface, \Serializable
     {
         return $this->tasks;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param mixed $comments
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
+    }
+
+
 
 
 }

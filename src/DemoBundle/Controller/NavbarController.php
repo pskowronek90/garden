@@ -2,6 +2,7 @@
 
 namespace DemoBundle\Controller;
 
+use DemoBundle\Entity\Comment;
 use DemoBundle\Entity\Plant;
 use DemoBundle\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,14 +23,20 @@ class NavbarController extends Controller
      */
     public function adminGetAction()
     {
-        $activeTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 1, 'user' =>
-            $this->getUser()->getId()]);
-        $completedTasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['status' => 0, 'user' =>
-            $this->getUser()->getId()]);
+        $activeTasks = $this->getDoctrine()->getRepository(Task::class)->findBy([
+            'status' => 1,
+            'user' => $this->getUser()->getId()
+        ]);
+        $completedTasks = $this->getDoctrine()->getRepository(Task::class)->findBy([
+            'status' => 0,
+            'user' => $this->getUser()->getId()
+        ]);
         $plants = $this->getDoctrine()->getRepository(Plant::class)->findBy(['user' => $this->getUser()->getId()]);
-
-        return $this->render('admin/dashboard.html.twig',
-            ['activeTasks' => $activeTasks, 'completedTasks' => $completedTasks, 'plants' => $plants]);
+        return $this->render('admin/dashboard.html.twig', [
+                'activeTasks' => $activeTasks,
+                'completedTasks' => $completedTasks,
+                'plants' => $plants,
+            ]);
     }
 
     /**
@@ -49,7 +56,7 @@ class NavbarController extends Controller
     }
 
     /**
-     * @Route("/tasks", name="tasks", methods={"GET"})
+     * @Route("/task", name="task", methods={"GET"})
      */
     public function tasksAction()
     {

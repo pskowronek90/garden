@@ -5,8 +5,6 @@ namespace DemoBundle\Controller;
 use AppBundle\Entity\User;
 use DemoBundle\Entity\Plant;
 use DemoBundle\Entity\Task;
-use DemoBundle\Entity\Tasker;
-use DemoBundle\Entity\TaskTypes;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +14,6 @@ use Symfony\Component\Validator\Constraints\DateTime;
 /**
  * @Route("/task")
  */
-
 class TaskController extends Controller
 {
     /**
@@ -61,7 +58,10 @@ class TaskController extends Controller
      */
     public function editGetAction()
     {
-        $tasks = $this->getDoctrine()->getRepository(Task::class)->findBy(['user' => $this->getUser()->getId()]);
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->findBy([
+            'user' => $this->getUser()->getId(),
+            'status' => 1
+        ]);
 
         return $this->render("admin/task/edit.html.twig", ['tasks' => $tasks]);
     }
@@ -77,8 +77,6 @@ class TaskController extends Controller
         $status = $request->get('status');
 
         $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
-
-
         $task->setDescription($description);
         $task->setDate(\DateTime::createFromFormat("Y-m-d", $date));
         $task->setStatus($status);

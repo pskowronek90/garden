@@ -3,6 +3,7 @@
 namespace DemoBundle\Controller;
 
 use DemoBundle\Entity\Plant;
+use DemoBundle\Entity\Task;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -147,4 +148,15 @@ class PlantController extends Controller
 
         return new Response("Plant deleted");
     }
+
+    /**
+     * @Route("/details/{id}", name="plant-details-get", methods={"GET"})
+     */
+    public function detailsAction($id)
+    {
+        $plant = $this->getDoctrine()->getRepository(Plant::class)->findOneBy(['id' => $id]);
+
+        return $this->render('admin/plant/details.html.twig', ['plant' => $plant]);
+    }
+
 }

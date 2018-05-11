@@ -1,0 +1,26 @@
+{% extends 'admin/base/admin.html.twig' %}
+{% block doctype %}{{ parent() }}{% endblock %}
+{% block head %}{{ parent() }}{% endblock %}
+{% block body %}
+    {{ parent() }}
+
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Plant Details</h4>
+                        </div><br>
+                        <img id="plant-photo" src="{{ asset('plants/' ~ plant.photo) }} "><br><br>
+                        Name: <strong>{{ plant.name }}</strong><br>
+                        Description: <strong>{{ plant.description }}</strong><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

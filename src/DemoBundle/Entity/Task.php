@@ -51,6 +51,15 @@ class Task
      */
     private $plant;
 
+    /**
+     *
+     * @var int
+     *
+     * @ORM\OneToMany(targetEntity="DemoBundle\Entity\Comment", mappedBy="comments")
+     * @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
+     */
+    private $comment;
+
 
     /**
      *
@@ -190,4 +199,22 @@ class Task
     {
         return $this->user;
     }
+
+    /**
+     * @return int
+     */
+    public function getComment(): int
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param int $comment
+     */
+    public function setComment(int $comment)
+    {
+        $this->comment = $comment;
+    }
+
+
 }

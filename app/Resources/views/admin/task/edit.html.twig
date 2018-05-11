@@ -18,7 +18,6 @@
                             <div class="row">
 
                                 <div class="col-md-3">
-
                                     <div class="form-group">
                                         <label>Task</label><br>
                                         <select name="taskID">
@@ -32,17 +31,17 @@
 
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea cols="40" name="taskDesc" class="form-control"
+                                        <textarea required cols="40" name="taskDesc" class="form-control"
                                                   placeholder="New Description"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Planned Date</label>
-                                        <input type="date" name="taskDate" class="form-control">
+                                        <input required type="date" name="taskDate" class="form-control">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Status</label>
-                                        <select name="status">
+                                        <select required name="status">
                                             <option value="1">Active</option>
                                             <option value="0">Completed</option>
                                         </select>
