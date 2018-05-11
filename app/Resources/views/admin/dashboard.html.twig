@@ -19,7 +19,8 @@
                                 {% for plant in plants %}
                                     <img id="plant-photo" src="{{ asset('plants/' ~ plant.photo) }} ">
                                     {#<span>{{ plant.name }}</span>#}
-                                    <a style="text-decoration: none; color: #0e0e0e" href="{{ path('plant-details-get', {'id': plant.id}) }}">{{ plant.name }}</a>
+                                    <a style="text-decoration: none; color: #0e0e0e"
+                                       href="{{ path('plant-details-get', {'id': plant.id}) }}">{{ plant.name }}</a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -68,11 +69,16 @@
                                     <p style="color: yellow">&nbsp;&nbsp;Active Tasks</p>
                                     <tbody>
                                     {% for activeTask in activeTasks %}
-                                    <tr>
-                                        <td>{{ activeTask.date|date("d F")}}</td>
-                                        <td>{{ activeTask.description }}</td>
-                                        <td>{{ activeTask.plant.name }}</td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ activeTask.date|date("d F") }}</td>
+                                            <td><a style=" font-weight: bold; text-decoration: none; color: #0e0e0e"
+                                                   href="{{ path('dashboard-details-get', {'id': activeTask.id}) }}">{{ activeTask.description }}</a>
+                                            </td>
+                                            <td>
+                                                <a style="font-weight: bold; text-decoration: none;"
+                                                   href="{{ path('plant-dashboard-details', {'id': activeTask.plant.id}) }}
+                                                ">{{ activeTask.plant.name }}</a></td>
+                                        </tr>
                                     {% endfor %}
                                     </tbody>
                                 </table>
@@ -82,9 +88,14 @@
                                     <tbody>
                                     {% for completedTask in completedTasks %}
                                         <tr>
-                                            <td>{{ completedTask.date|date("d F")}}</td>
-                                            <td>{{ completedTask.description }}</td>
-                                            <td>{{ completedTask.plant.name }}</td>
+                                            <td>{{ completedTask.date|date("d F") }}</td>
+                                            <td><a style=" font-weight: bold; text-decoration: none; color: #0e0e0e"
+                                                   href="{{ path('dashboard-details-get', {'id': completedTask.id}) }}">{{ completedTask.description }}</a>
+                                                {#<td>{{ completedTask.plant.name }}</td>#}
+                                            <td>
+                                                <a style="font-weight: bold; text-decoration: none;"
+                                                   href="{{ path('plant-dashboard-details', {'id': completedTask.plant.id}) }}
+                                                ">{{ completedTask.plant.name }}</a></td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>

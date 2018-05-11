@@ -12,7 +12,7 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
     public function showComments($id)
     {
-        return $this->getEntityManager()->createQuery('SELECT * FROM comment WHERE task_id = :id')
-            ->setParameter('id', $id);
+        return $this->getEntityManager()->createQuery('SELECT c FROM DemoBundle:Comment c WHERE c.task = :id')->setParameter('id',
+                $id)->getResult();
     }
 }

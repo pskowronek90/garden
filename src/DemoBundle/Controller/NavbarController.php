@@ -23,6 +23,8 @@ class NavbarController extends Controller
      */
     public function adminGetAction()
     {
+
+
         $activeTasks = $this->getDoctrine()->getRepository(Task::class)->findBy([
             'status' => 1,
             'user' => $this->getUser()->getId()
@@ -31,11 +33,16 @@ class NavbarController extends Controller
             'status' => 0,
             'user' => $this->getUser()->getId()
         ]);
+
+        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['task' => $activeTasks]);
+        $counter = count($comments);
+
         $plants = $this->getDoctrine()->getRepository(Plant::class)->findBy(['user' => $this->getUser()->getId()]);
         return $this->render('admin/dashboard.html.twig', [
                 'activeTasks' => $activeTasks,
                 'completedTasks' => $completedTasks,
                 'plants' => $plants,
+                'counter' => $counter
             ]);
     }
 
@@ -72,5 +79,25 @@ class NavbarController extends Controller
     public function weatherAction()
     {
         return $this->render('admin/weather.html.twig');
+    }
+
+    /**
+     * @Route("task/details/{id}", name="dashboard-details-get", methods={"GET"})
+     */
+    public function detailsAction($id)
+    {
+        $task = $this->getDoctrine()->getRepository(Task::class)->findOneBy(['id' => $id]);
+        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['task' => $task]);
+
+        return $this->render('admin/task/details.html.twig', ['task' => $task, 'comments' => $comments]);
+    }
+
+    /**
+     * @Route("plant/details/{id}", name="plant-dashboard-details", methods={"GET"})
+     */
+    public function detailsPlantAction($id)
+    {
+        $plant = $this->getDoctrine()->getRepository(Plant::class)->findOneBy(['id' => $id]);
+        return $this->render('admin/plant/details.html.twig', ['plant' => $plant]);
     }
 }

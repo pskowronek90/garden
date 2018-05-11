@@ -155,7 +155,6 @@ class PlantController extends Controller
     public function detailsAction($id)
     {
         $plant = $this->getDoctrine()->getRepository(Plant::class)->findOneBy(['id' => $id]);
-
         return $this->render('admin/plant/details.html.twig', ['plant' => $plant]);
     }
 

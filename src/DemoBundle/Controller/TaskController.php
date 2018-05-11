@@ -118,7 +118,7 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("task/details/{id}", name="task-details-get", methods={"GET"})
+     * @Route("/details/{id}", name="task-details-get", methods={"GET"})
      */
     public function detailsAction($id)
     {
@@ -129,7 +129,7 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("task/details/{id}", name="task-details-post", methods={"POST"})
+     * @Route("/details/{id}", name="task-details-post", methods={"POST"})
      */
     public function detailsPostAction($id, Request $request)
     {
