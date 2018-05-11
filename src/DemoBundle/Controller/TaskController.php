@@ -118,7 +118,7 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/details/{id}", name="task-details-get", methods={"GET"})
+     * @Route("task/details/{id}", name="task-details-get", methods={"GET"})
      */
     public function detailsAction($id)
     {
@@ -126,6 +126,25 @@ class TaskController extends Controller
         $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['task' => $task]);
 
         return $this->render('admin/task/details.html.twig', ['task' => $task, 'comments' => $comments]);
+    }
+
+    /**
+     * @Route("task/details/{id}", name="task-details-post", methods={"POST"})
+     */
+    public function detailsPostAction($id, Request $request)
+    {
+        $taskComment = $request->get('taskComment');
+
+        $comment = new Comment();
+        $comment->setContent($taskComment);
+        $comment->setTask($this->getDoctrine()->getRepository(Task::class)->findOneBy(['id' => $id]));
+        $comment->setTimestamp(date('Y-m-d H:i:s', time()));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($comment);
+        $em->flush();
+
+        return $this->redirectToRoute('task-details-get', ['id' => $id]);
     }
 
 }

@@ -21,16 +21,12 @@
                         <b>Status:</b> {{ task.status }}<br>
                         <b>Comments:</b><br><br>
                         {% for comment in comments %}
-                        <span id="added">Added on: {{ comment.timestamp|date('d F Y')}}</span>
+                        <span id="added">Added on: {{ comment.timestamp|date('d F Y H:i:s')}}</span>
                             <div class="alert alert-success">
                                 <span>{{ comment.content }}</span><br>
                             </div>
                         {% endfor %}
-
-
                         <br>
-
-
                         <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Add Comment</label>
