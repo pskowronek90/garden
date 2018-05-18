@@ -26,14 +26,17 @@ class ContactController extends Controller
         $from = $request->get('from');
         $email = $request->get('email');
         $text = $request->get('message');
+        $date = date('d F Y', time());
 
         $message = (new \Swift_Message($subject));
         $message->setFrom('floracare.official@gmail.com');
         $message->setTo('floracare.official@gmail.com');
         $message->setBody($this->renderView("contact/mail.html.twig", [
             'from' => $from,
+            'subject' => $subject,
             'email' => $email,
-            'text' => $text
+            'text' => $text,
+            'date' => $date
         ]), 'text/html');
         $mailer->send($message);
 

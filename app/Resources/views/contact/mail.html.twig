@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-From {{ from }}
 
-{{ text }}
+Sent {{ date|date('d F Y') }}<br>
+
+Subject: {{ subject }}<br>
+
+From {{ from }} {{ email }}<br>
+
+{{ text }}<br>
 
 </body>
 </html>
